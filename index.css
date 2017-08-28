@@ -1,8 +1,9 @@
 html { font: 20pt/1.5 sans-serif }
 body { max-width: 32rem; margin: 0 auto; padding: 1.5rem }
-nav { font-size: .8rem; font-weight: bold; color: purple }
+nav { font-size: .8rem; }
 nav { position: absolute; top: 1.5rem; right: 3rem }
-nav p { border-bottom: .1rem solid purple }
+nav p, a { font-weight: bold; color: purple; text-decoration: none }
+nav p, a { border-bottom: .1rem solid currentcolor }
 nav p { margin-left: 3rem; display: inline }
 h1 { font-size: 1.5rem; line-height: 3rem; margin: 1.5rem 0 0 }
 h2 { font-size: 1.2rem; line-height: 3rem; margin: 0 }

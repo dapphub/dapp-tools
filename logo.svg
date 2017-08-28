@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="66px" height="65px" viewBox="0 0 66 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="CI-stuff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="NXS-new-logo" transform="translate(-133.000000, -150.000000)">
+            <g id="Group-7" transform="translate(129.000000, 151.000000)">
+                <g id="Group-2" transform="translate(36.500000, 44.500000) rotate(-180.000000) translate(-36.500000, -44.500000) translate(0.000000, 14.000000)">
+                    <g id="Group" transform="translate(9.285946, 21.500166) rotate(-240.000000) translate(-9.285946, -21.500166) translate(8.079050, 17.311642)"></g>
+                    <g id="Group-4" transform="translate(0.000000, 10.573770)" stroke-linecap="round" stroke-width="3" stroke-linejoin="round">
+                        <g id="Group" transform="translate(8.042173, 8.929917) rotate(-240.000000) translate(-8.042173, -8.929917) translate(0.042173, 4.929917)" stroke="#6660A0">
+                            <path d="M8.86369205,0.100282473 L8.69307037,7.12842659" id="Line"></path>
+                            <polyline id="Path-20650" points="0.277537753 3.2587093 8.69307037 7.33209593 15.7479086 3.2587093"></polyline>
+                        </g>
+                        <g id="Group" transform="translate(8.042802, 40.699415) scale(1, -1) rotate(-240.000000) translate(-8.042802, -40.699415) translate(0.042802, 36.699415)" stroke="#C7BDE6">
+                            <path d="M8.86369205,0.100282473 L8.69307037,7.12842659" id="Line"></path>
+                            <polyline id="Path-20650" points="0.277537753 3.2587093 8.69307037 7.33209593 15.7479086 3.2587093"></polyline>
+                        </g>
+                    </g>
+                    <g id="Group-3" transform="translate(56.103448, 10.573770)" stroke-linecap="round" stroke-width="3" stroke-linejoin="round">
+                        <g id="Group" transform="translate(8.030998, 8.929917) scale(-1, 1) rotate(-240.000000) translate(-8.030998, -8.929917) translate(0.030998, 4.929917)" stroke="#6660A0">
+                            <path d="M8.86369205,0.100282473 L8.69307037,7.12842659" id="Line"></path>
+                            <polyline id="Path-20650" points="0.277537753 3.2587093 8.69307037 7.33209593 15.7479086 3.2587093"></polyline>
+                        </g>
+                        <g id="Group" transform="translate(8.030368, 40.699415) scale(-1, -1) rotate(-240.000000) translate(-8.030368, -40.699415) translate(0.030368, 36.699415)" stroke="#C7BDE6">
+                            <path d="M8.86369205,0.100282473 L8.69307037,7.12842659" id="Line"></path>
+                            <polyline id="Path-20650" points="0.277537753 3.2587093 8.69307037 7.33209593 15.7479086 3.2587093"></polyline>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-5" transform="translate(28.344828, 27.131148)" stroke="#C7BDE6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.09378492,15.557377 L0,13.0203329" id="Line" transform="translate(2.046892, 14.288855) scale(-1, 1) translate(-2.046892, -14.288855) "></path>
+                    <path d="M9.5,-1.4899797e-09 L9.5,4.78688524" id="Line" transform="translate(9.500000, 2.393443) scale(-1, 1) translate(-9.500000, -2.393443) "></path>
+                    <path d="M15.4234565,15.557377 L19.5172414,13.0203329" id="Line" transform="translate(17.470349, 14.288855) scale(-1, 1) translate(-17.470349, -14.288855) "></path>
+                </g>
+                <g id="Group" transform="translate(37.362069, 5.073770) rotate(-180.000000) translate(-37.362069, -5.073770) translate(26.862069, 0.573770)" stroke-linecap="round" stroke-width="3" stroke="#6660A0" stroke-linejoin="round">
+                    <g id="Group-6">
+                        <path d="M10.5,0.183536538 L10.5,7.20829064" id="Line"></path>
+                        <polyline id="Path-20650" points="0.603448276 1.39344262 10.2586207 8.57377049 20.5172414 1.39344262"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

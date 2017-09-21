@@ -6,18 +6,20 @@
 </nav>
 
 <img src=logo.svg>
+
+<section>
+<div>
+    
 <h1>Tools for dapps</h1>
 
-<p>
   Developing for Ethereum demands a suite of tools to help with
   construction, correctness, deployment, and management.
-</p>
 
 <p>
   The open source toolkit by <a href=#>DappHub</a> consists of
   <ul>
     <li>
-      <tt><a href=#>dapp</a></tt>, the main entry point, a command line tool that
+      <tt><a href=#>dapp</a></tt>, a command line tool that
       initializes, builds, links, tests, deploys, and interacts with
       Ethereum contracts;
     <li>
@@ -37,22 +39,9 @@
   consulting projects.
 </p>
 
-<h2>Installing, upgrading, and removing</h2>
+<h1>Verified contract components</h1>
 
-<p>
-Here's the recommended way to install the tools:
-<pre>
-curl <a href=https://dapp.tools/install>https://dapp.tools/install</a> | sh
-</pre>
-
-If you want to install the tools manually, the script serves as
-documentation.  Don't worry, though&mdash;it's safe and easy
-to undo.
-
-<h2>Dappsys&mdash;verified contract components</h2>
-
-<p>
-  Fundamental to our strategy is
+  A big part of our strategy is
       <tt><a href=#>dappsys</a></tt>, a set of composable contract
       components with formally verified semantics.  It includes
       <ul>
@@ -64,31 +53,61 @@ to undo.
       </ul>
   </ul>
 
+</div></section>
+<section class=dark>
+<div>
 
-<h2>Upgrading and uninstalling</h2>
+<h1>Installing the DappHub toolkit</h1>
+
+<p>
+You can run our safe and reversible installer:
+<pre>
+<b>$ curl <a href=https://dapp.tools/install>https://dapp.tools/install</a> | sh</b>
+(1/4) Downloading...
+(2/4) Installing Nix environment...
+(3/4) Refreshing package channel...
+(4/4) Installing base packages...
+
+Done! Try `dapp new my-dapp' or `dapp help'.
+</pre>
+
+If you'd rather install manually, the script serves as documentation.
+
+<p>
 You can switch to the latest release of the toolkit:
+<pre>
+<b>$ dapp self-upgrade</b>
+Installed new versions:
+  dapp v1.2    (was v1.1)
+  solc v0.4.6  (was v0.4.5)
+</pre>
+  
 <p>
-  <pre>dapp self-upgrade</pre>
-<p>
-  You can also completely remove it, leaving no trace:
-  <pre>dapp self-destroy</pre>
+  You can also uninstall it, leaving no trace:
+<pre>
+<b>$ dapp self-destroy</b>
+Dapp tools removed.
+</pre>
 </p>
 
-<h2>Introduction to the Nix package manager</h2> The installation
-infrastructure that <tt>dapp</tt> builds on is <a href=#>Nix</a>, a
-package manager with properties that make it uniquely robust, far
-beyond tools like <tt>npm</tt>.
+<h2>Introduction to the Nix package manager</h2>
 
-<p>Nix's robustness is due to its use of cryptography to track
-dependencies and configurations.  This fits naturally with the
-blockchain paradigm&mdash;we're in the age of hashes.
+The <tt>dapp</tt> tool builds on <a href=#>Nix</a>, a package manager
+with properties that make it uniquely robust, far beyond tools like
+<tt>npm</tt>, and uniquely self-contained.
 
 <p>
 You don't need knowledge of Nix to operate <tt>dapp</tt>, but we
 recommend anyone interested in system administration or software
 deployment to learn about it.
 
+<p>Nix's robustness is due to its use of cryptographic digests to
+track dependencies and configurations.  This fits naturally with the
+blockchain paradigm&mdash;we're in the age of hashes.
+
 <p>
 Eelco Dolstra's 2006 Ph.D. thesis, <a href=#>"The Purely Functional
 Software Deployment Model"</a>, describes the system in detail.
 Print it out for a rainy day&mdash;it's worth reading.
+
+</div></section>

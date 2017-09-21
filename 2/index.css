@@ -1,0 +1,23 @@
+html { font: 20pt/1.5 sans-serif }
+tt { font-size: 19pt; }
+body { max-width: 32rem; margin: 0 auto; padding: 1.5rem }
+nav { font-size: .8rem; }
+nav { position: absolute; top: 1.5rem; right: 3rem }
+a { font-weight: bold; color: purple; text-decoration: none }
+a { border-bottom: .1rem solid currentcolor }
+nav p { margin-left: 3rem; display: inline }
+h1 { font-size: 1.5rem; line-height: 3rem; margin: 1.5rem 0 0 }
+h2 { font-size: 1.2rem; line-height: 3rem; margin: 1.5rem 0 0 }
+img { position: absolute; left: 3rem; top: 1.5rem; width: 5rem }
+tt { color: rgba(0, 0, 50, 1); }
+li:not(:last-child) { margin-bottom: .5rem; }
+pre { background-color: rgba(0, 0, 50, 0.09); }
+pre { padding: 0.25rem 1rem; }
+pre { border-radius: .5rem; border: 1px solid rgba(0, 0, 0, 0.3); }
+pre a { border-width: 0; }
+pre { margin: 0; margin-left: 1.5rem; margin-bottom: 1rem; }
+h1 { letter-spacing: -0.05em; }
+body { margin-bottom: 8rem; }
+ul ul { margin-top: .5rem; list-style-type: none; }
+ul ul li { margin-bottom: 0 !important; }
+ul ul li a { margin-right: 1rem; }

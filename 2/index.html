@@ -1,0 +1,95 @@
+<!doctype html>
+<link rel=stylesheet href=index.css>
+<nav>
+  <p> <a href=https://dapphub.chat>File an issue</a>
+  <p> <a href=https://dapphub.chat>Talk about dapps</a>
+</nav>
+
+<img src=logo.svg>
+<h1>Tools for dapps</h1>
+
+<p>
+  Developing with Ethereum demands a suite of tools to aid with
+  construction, correctness, deployment, and management.
+</p>
+
+<p>
+  The open source toolkit by <a href=#>DappHub</a> consists of
+  <ul>
+    <li>
+      <tt><a href=#>dapp</a></tt>, the main entry point, a command line tool that
+      initializes, builds, links, tests, deploys, and interacts with
+      Ethereum contracts;
+    <li>
+      <tt><a href=#>seth</a></tt>, a utility knife that constructs and sends
+      transactions, queries blockchain nodes for data, and converts
+      between formats; and
+    <li>
+      <tt><a href=#>hevm</a></tt>, an EVM implementation designed for
+       testing and verification, with a nimble debugger that runs in
+       the terminal.
+  </ul>
+</p>
+
+<p>
+  These tools make up a coherent environment for developing dapps.
+  They're what we use to work on <a href=#>Maker</a> and our
+  consulting projects.
+</p>
+
+<h2>Installing, upgrading, and removing</h2>
+
+<p>
+Here's the recommended way to install the tools:
+<pre>
+curl <a href=https://dapp.tools/install>https://dapp.tools/install</a> | sh
+</pre>
+
+If you want to install the tools manually, the script serves as
+documentation.  Don't worry, though&mdash;it's safe and easy
+to undo.
+
+<h2>Dappsys&mdash;verified contract components</h2>
+
+<p>
+  Fundamental to our strategy is
+      <tt><a href=#>dappsys</a></tt>, a set of composable building
+      blocks with formally verified semantics for well-behaved
+      contracts.  Some of the components are
+      <ul>
+        <li><tt><a href=#>ds-token</a></tt>, a generic EIP-20 coin;</li>
+        <li><tt><a href=#>ds-cabal</a></tt>, a multisig;</li>
+        <li><tt><a href=#>ds-guard</a></tt>, a flexible authority rule;</li>
+        <li><tt><a href=#>ds-proxy</a></tt>, a transaction proxy; and</li>
+        <li><tt><a href=#>ds-cache</a></tt>, a store of expiring values.</li>
+      </ul>
+  </ul>
+
+
+<h2>Upgrading and uninstalling</h2>
+You can switch to the latest release of the toolkit:
+<p>
+  <pre>dapp self-upgrade</pre>
+<p>
+  You can also completely remove it, leaving no trace:
+  <pre>dapp self-destroy</pre>
+</p>
+
+<h2>Introduction to the Nix package manager</h2> The installation
+infrastructure that <tt>dapp</tt> builds on is <a href=#>Nix</a>, a
+package manager with properties that make it uniquely robust, far
+beyond tools like <tt>npm</tt>.
+
+<p>Nix's robustness is due to its use of cryptography to track
+dependencies and configurations.  This fits naturally with the
+blockchain paradigm&mdash;we're in the age of hashes.
+
+<p>
+You don't need knowledge of Nix to operate <tt>dapp</tt>, but we
+recommend anyone interested in system administration or software
+deployment to learn about it.
+
+<p>
+Eelco Dolstra's 2006 Ph.D. thesis, <a href=#>"The Purely Functional
+Software Deployment Model"</a>, describes the system in detail.
+Print it out for a rainy day&mdash;it's worth reading.

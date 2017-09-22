@@ -17,10 +17,8 @@ ul ul { margin-top: .5rem; list-style-type: none; }
 ul ul li { margin-bottom: 0 !important; }
 ul ul li a { margin-right: 1rem; }
 
-section:not(.dark) { position: relative; }
-
-.dark { border: 0 solid rgba(0, 0, 0, 0.1); border-width: .3rem 0; }
 .dark { background: rgba(70, 50, 100, 1); color: ivory; }
+.dark { background: linear-gradient(to bottom, rgba(70, 50, 100, 0.8), rgba(70, 50, 100, 1) 100%); }
 .dark tt { color: rgba(255, 200, 255, 1); }
 .dark a { color: rgba(200, 200, 255, 1); }
 
@@ -32,3 +30,32 @@ pre { border: 1px solid rgba(255, 255, 255, .05); }
 pre a { border-width: 0; }
 pre { margin: 0; margin-left: 1.5rem; margin-bottom: 1rem; }
 pre { background: rgba(0, 0, 0, 0.3); }
+
+section { position: relative; z-index: 1; }
+section > div { position: relative; }
+
+/*
+shine { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+shine { display: grid; grid: repeat(5, 500px) / repeat(10, 1fr); }
+stripe { opacity: 0.5; }
+stripe:nth-child(odd) { background: linear-gradient(to right, lightblue 0%, rgba(70, 50, 100, 1) 100%); }
+stripe:nth-child(even) { background: linear-gradient(to left, lightblue 0%, rgba(70, 50, 100, 1) 100%); }
+stripe { transform: skewY(-12deg); transform-origin: 0; }
+stripe:nth-child(1) { grid-column: span 3; }
+stripe:nth-child(2) { grid-area: 3 / span 3 / auto / -1; }
+stripe:nth-child(3) { grid-row: 4; grid-column: span 5; }
+*/
+
+picture.a {
+  background: url(engine-1.svg);
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.1;
+}

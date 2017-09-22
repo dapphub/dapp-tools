@@ -8,6 +8,7 @@
 <img src=logo.svg>
 
 <section>
+
 <div>
     
 <h1>Tools for dapps</h1>
@@ -23,9 +24,8 @@
       initializes, builds, links, tests, deploys, and interacts with
       Ethereum contracts;
     <li>
-      <tt><a href=#>seth</a></tt>, a utility knife that constructs and sends
-      transactions, queries blockchain nodes for data, and converts
-      between formats; and
+      <tt><a href=#>seth</a></tt>, a utility knife for slicing and dicing
+      transactions, performing remote calls, and converting between data formats; and
     <li>
       <tt><a href=#>hevm</a></tt>, an EVM implementation designed for
        testing and verification, with a nimble debugger that runs in
@@ -41,20 +41,32 @@
 
 <h1>Verified contract components</h1>
 
-  A big part of our strategy is
-      <tt><a href=#>dappsys</a></tt>, a set of composable contract
-      components with formally verified semantics.  It includes
-      <ul>
-        <li><tt><a href=#>ds-token</a></tt>, a generic EIP-20 coin;</li>
-        <li><tt><a href=#>ds-cabal</a></tt>, a multisig;</li>
-        <li><tt><a href=#>ds-guard</a></tt>, a flexible authority rule;</li>
-        <li><tt><a href=#>ds-proxy</a></tt>, a transaction proxy; and</li>
-        <li><tt><a href=#>ds-cache</a></tt>, a store of expiring values.</li>
-      </ul>
+  The layer above these tools is
+   <tt><a href=#>Dappsys</a></tt>, a pattern language of contract
+   components with formally verified semantics.  It includes
+   <ul>
+     <li><tt><a href=#>ds-token</a></tt>, a generic EIP-20 coin;</li>
+     <li><tt><a href=#>ds-cabal</a></tt>, a multisig;</li>
+     <li><tt><a href=#>ds-guard</a></tt>, a flexible authority rule;</li>
+     <li><tt><a href=#>ds-proxy</a></tt>, a transaction proxy; and</li>
+     <li><tt><a href=#>ds-cache</a></tt>, a store of expiring values.</li>
+   </ul>
   </ul>
 
+<p>Using these proven parts lets you focus on the novel features of
+your contract system.
+
 </div></section>
+
 <section class=dark>
+
+<picture class=a></picture>
+
+<shine>
+  <stripe></stripe>
+  <stripe></stripe>
+  <stripe></stripe>
+</shine>
 <div>
 
 <h1>Installing the DappHub toolkit</h1>

@@ -1,5 +1,6 @@
 html { font: 18px/1.5 sans-serif }
 body { color: rgba(0, 0, 0, 0.85); margin: 0 }
+body { background: rgba(100, 0, 100, 0.1); }
 tt { font-size: 90%; }
 section > div { max-width: 32rem; margin: 0 auto; padding: 1.5rem }
 nav { font-size: .8rem; }
@@ -26,10 +27,10 @@ ul ul li a { margin-right: 1rem; }
 
 pre { background-color: rgba(255, 200, 255, .09); }
 pre { padding: 0.5rem 0.75rem; }
-pre { border: 1px solid rgba(255, 255, 255, .05); }
 pre a { border-width: 0; }
 pre { margin: 0; margin-left: 1.5rem; margin-bottom: 1rem; }
-pre { background: rgba(0, 0, 0, 0.3); }
+pre { background: rgba(0, 0, 0, 0.3); box-shadow: inset 0rem 0rem 3rem rgba(0,0,0,.15) }
+pre { border-radius: .5rem; }
 
 section { position: relative; z-index: 1; }
 section > div { position: relative; }

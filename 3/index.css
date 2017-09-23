@@ -1,6 +1,6 @@
 html { font: 21px/1.5 sans-serif }
 body { color: rgba(0, 0, 0, 0.85); margin: 0 }
-body { background: rgba(100, 0, 100, 0.1); }
+body { background: rgba(0, 0, 30, 0.1); }
 tt { font-size: 90%; }
 section > div { max-width: 36rem; margin: 0 auto; padding: 1.5rem }
 nav { font-size: .8rem; }

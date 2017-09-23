@@ -1,4 +1,4 @@
-html { font: 21px/1.5 sans-serif }
+html { font: 16px/1.5 sans-serif }
 body { color: rgba(0, 0, 0, 0.85); margin: 0 }
 body { background: rgba(0, 0, 30, 0.1); }
 tt { font-size: 90%; }
@@ -52,4 +52,10 @@ footer {
   padding: .5rem 1rem;
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 36rem) {
+  pre {
+    font-size: 0.7rem;
+  }
 }

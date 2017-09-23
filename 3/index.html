@@ -1,0 +1,90 @@
+<!doctype html>
+<link rel=stylesheet href=index.css>
+<nav>
+  <p> <a href=https://dapphub.chat>Talk about dapps</a>
+</nav>
+
+<img src=logo.svg>
+
+<section>
+
+<div>
+    
+<h1>Tools for dapps</h1>
+
+  Developing for Ethereum demands a suite of tools to help with
+  construction, correctness, deployment, and management.
+
+<p>
+  The open source toolkit by <a href=https://dapphub.com>DappHub</a> consists of
+  <ul>
+    <li>
+      <tt><a href=https://github.com/dapphub/dapp>dapp</a></tt>, a command line tool that
+      initializes, compiles, links, tests, deploys, and interacts with
+      Ethereum contracts;
+    <li>
+      <tt><a href=https://github.com/dapphub/seth>seth</a></tt>, a utility knife for slicing and dicing
+      transactions, performing remote calls, and converting between data formats; and
+    <li>
+      <tt><a href=https://github.com/dapphub/hevm>hevm</a></tt>, an EVM implementation designed for
+       testing and verification, with a nimble debugger that runs in
+       the terminal.
+  </ul>
+</p>
+
+<p>
+  We prefer tools that are fast, transparent, and good citizens of
+  the command line, and that's how we've built the <tt>dapp</tt> suite.
+</p>
+
+<p>
+  These tools grew out of our work on <a href=#>Maker</a> and
+  other consulting projects.
+</p>
+
+</div></section>
+
+<section class=dark><div>
+
+<picture class=a></picture>
+
+<h1>Installing the DappHub toolkit</h1>
+
+We recommend using the <a href=https://nixos.org>Nix package
+manager</a> to install these tools.  It works on Linux and OS X, and
+we maintain a channel with all our software along with the Solidity
+compiler (several versions).
+
+<p>
+<pre>
+<b># Install Nix:</b>
+curl https://nixos.org/nix/install | sh
+
+<b># Add the <!--
+--><a href=https://github.com/dapphub/nixpkgs-dapphub>DappHub channel</a> to Nix:</b>
+nix-channel --add https://nix.dapphub.com/pkgs/dapphub
+nix-channel --update
+
+<b># Install the various developer tools:</b>
+nix-env -iA dapphub.{<!--
+--><a href=https://github.com/dapphub/dapp>dapp</a>,<!--
+--><a href=https://github.com/dapphub/hevm>hevm</a>,<!--
+--><a href=https://github.com/dapphub/seth>seth</a>,<!--
+--><a href=https://github.com/ethereum/solidity>solc</a>}
+</pre>
+
+<h1>Learning</h1>
+
+These tools have been satisfying our own needs, and now we're getting
+them ready for everyone to use.
+
+<p>Until we publish learning material&mdash;manuals, videos,
+tutorials&mdash;the best way to learn is to install the tools and then
+look at a project like
+<a href=https://github.com/dapphub/ds-token><tt>ds-token</tt></a>.
+
+<p>You should also join <a href=https://dapphub.chat>our chat</a>
+where we'll be able to help you get started.
+
+</div></section>
+

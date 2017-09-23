@@ -34,6 +34,8 @@ pre { border-radius: .5rem; }
 section > div { position: relative; }
 
 picture.a {
+  pointer-events: none;
+  z-index: 0;
   background: url(engine-1.svg);
   background-repeat: no-repeat;
   display: block;

@@ -1,0 +1,141 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href=index.css>
+<title>dapphub &gt; dapp.tools &gt; dapp</title>
+<nav>
+  <a href=https://dapphub.tools>dapp.tools</a>
+</nav>
+
+<img src=logo.svg>
+
+<section>
+
+<div>
+
+<h1>dapp</h1>
+
+Build, test, deploy and transact with Ethereum contracts from the comfort of the command-line.
+
+<script type="text/javascript"
+        src="https://asciinema.org/a/GsgEuOcXPjcJzLSEs8TekbBLD.js"
+        data-autoplay=0
+        data-preload=1
+        data-rows=20
+        data-theme=monokai
+        id="asciicast-GsgEuOcXPjcJzLSEs8TekbBLD" async></script>
+
+<h2>Quick Usage</h2>
+
+<pre>
+<strong>$ dapp init</strong>                  create a new dapp
+
+<strong>$ dapp build</strong>                 compile the source code
+<strong>$ dapp test</strong>                  run the test suite
+
+<strong>$ dapp install &lt;pkg&gt;</strong>         install a <a href="">dappsys</a> package
+<strong>$ dapp upgrade &lt;pkg&gt;</strong>         upgrade a package
+<strong>$ dapp uninstall &lt;pkg&gt;</strong>       uninstall a package
+
+<strong>$ dapp create &lt;args&gt;</strong>         deploy a contract
+</pre>
+
+<h2>Usage Examples</h2>
+
+<ul>
+  <li>init - TODO</li>
+  <li>build - TODO</li>
+  <li>test - TODO</li>
+  <li>create - TODO</li>
+</ul>
+
+See the dapp <a href="https://dapp.readthedocs.io/">developer docs</a> for more detailed guide.
+
+<h2>Quick Install</h2>
+
+We recommend using the <a href=https://nixos.org>Nix</a> package manager</a>.
+It works on Linux and OS X and is completely unobtrusive. We maintain our own
+channel for distributions of our software along with the Solidity compiler
+(multiple versions).
+
+<p>
+<pre>
+<b># Install Nix:</b>
+curl https://nixos.org/nix/install | sh
+
+<b># Add the <!--
+--><a class="darken" href=https://github.com/dapphub/nixpkgs-dapphub>DappHub channel</a> to Nix:</b>
+nix-channel --add https://nix.dapphub.com/pkgs/dapphub
+nix-channel --update
+
+<b># Install one or many tools as required:</b>
+nix-env -iA dapphub.{<!--
+--><a class="darken" href=https://github.com/dapphub/dapp>dapp</a>,<!--
+--><a class="darken" href=https://github.com/dapphub/hevm>hevm</a>,<!--
+--><a class="darken" href=https://github.com/dapphub/seth>seth</a>,<!--
+--><a class="darken" href=https://github.com/ethereum/solidity>solc</a>}
+</pre>
+
+See the full <a href="">install instructions</a> for more detailed guide.
+
+<h2>Contributing</h2>
+
+<ul>
+  <li>Log issues to our github <a href="https://github.com/dapphub/dapp/issues">issue tracker</a></li>
+  <li>Get in touch with us at <a href="https://dapp.chat">dapp.chat</a></li>
+</ul>
+
+</div></section>
+
+<section class=dark><div>
+
+<picture class=a></picture>
+
+<h1>DappHub</h1>
+
+DappHub is a community of developers, computer scientists, security researchers,
+type theorists working on blockchain software. Our suite of tools has grown through
+our work on <a href="http://www.makerdao.com">Maker</a> and other consulting
+projects and designed to ease the correct construction and deployment of
+distributed applications.
+
+<p>
+  Our open source <a href=https://dapphub.com>toolkit</a> includes:
+  <ul>
+    <li>
+      <tt><a href=https://github.com/dapphub/dapp>dapp</a></tt> build, test,
+      deploy and transact with Ethereum contracts from the comfort of the
+      command line.
+    <li>
+      <tt><a href=https://github.com/dapphub/seth>seth</a></tt>, a utility knife for slicing and dicing
+      transactions, performing remote calls, and converting between data formats; and
+    <li>
+      <tt><a href=https://github.com/dapphub/hevm>hevm</a></tt>, an EVM implementation designed for
+       testing and verification, with a nimble debugger that runs in
+       the terminal.
+  </ul>
+</p>
+
+<p>
+  We like tools that are fast, transparent, and good citizens of
+  the command line, which is how we've built the <tt>dapp</tt> suite.
+</p>
+
+<h2>DappSys - Smart contract building blocks</h2>
+   We also maintain
+   <tt><a href=#>Dappsys</a></tt> - a pattern language of contracts
+   with formally verified semantics.  It includes
+   <ul>
+     <li><tt><a href=#>ds-token</a></tt>, a generic EIP-20 coin;</li>
+     <li><tt><a href=#>ds-cabal</a></tt>, a multisig;</li>
+     <li><tt><a href=#>ds-guard</a></tt>, a flexible authority rule;</li>
+     <li><tt><a href=#>ds-proxy</a></tt>, a transaction proxy; and</li>
+     <li><tt><a href=#>ds-cache</a></tt>, a store of expiring values.</li>
+   </ul>
+  </ul>
+
+<p>Using these proven parts lets us focus on the novel features of the systems
+we develop. We share Dappsys under a free software license to benefit the smart
+contract ecosystem.</p>
+
+</div></section>
+

@@ -1,19 +1,25 @@
+---
+# enable liquid
+---
 html { font: 16px/1.5 sans-serif }
 body { color: rgba(0, 0, 0, 0.85); margin: 0 }
 body { background: rgba(0, 0, 30, 0.1); }
 tt { font-size: 90%; }
-section > div { max-width: 36rem; margin: 0 auto; padding: 1.5rem }
+section > .container { max-width: 36rem; margin: 0 auto; padding: 1.5rem }
+section > .container { position: relative; }
 nav { font-size: .8rem; }
 nav { position: absolute; top: 1.5rem; right: 3rem }
-a { font-weight: bold; color: purple; text-decoration: none }
+a { font-weight: bold; color: #800080; text-decoration: none }
 a { border-bottom: .1rem solid currentcolor }
+a.darken { color: #4a004a }
 nav p { margin-left: 3rem; display: inline }
 h1 { font-size: 1.5rem; line-height: 3rem; margin: 1.5rem 0 0 }
 h2 { font-size: 1.2rem; line-height: 2rem; margin: 1.5rem 0 0 }
-img { position: absolute; left: 3rem; top: 1.5rem; width: 5rem }
+img { position: absolute; left: 3rem; top: 1.5rem; width: 7rem }
 tt { color: rgba(0, 0, 50, 1); }
 li:not(:last-child) { margin-bottom: .5rem; }
 h1, h2 { letter-spacing: -0.05em; }
+h2 span { color: #999; }
 ul ul { margin-top: .5rem; list-style-type: none; }
 ul ul li { margin-bottom: 0 !important; }
 ul ul li a { margin-right: 1rem; }
@@ -24,40 +30,11 @@ ul ul li a { margin-right: 1rem; }
 .dark a { color: rgba(200, 200, 255, 1); }
 .dark { padding-bottom: 2rem; }
 
-pre { background-color: rgba(255, 200, 255, .09); }
 pre { padding: 0.5rem 0.75rem; }
+pre { overflow-x: hidden; }
 pre a { border-width: 0; }
-pre { margin: 0; margin-left: 0rem; margin-bottom: 1rem; }
-pre { background: rgba(0, 0, 0, 0.3); box-shadow: inset 0rem 0rem 3rem rgba(0,0,0,.15) }
+pre strong { color: #444; }
+pre { margin: 1rem 0 1rem 0;}
+pre { background: rgba(0, 0, 0, 0.01); box-shadow: inset 0rem 0rem 3rem rgba(0,0,0,.05) }
 pre { border-radius: .5rem; }
-
-section > div { position: relative; }
-
-picture.a {
-  pointer-events: none;
-  z-index: 0;
-  background: url(engine-1.svg);
-  background-repeat: no-repeat;
-  display: block;
-  position: absolute;
-  top: 4rem;
-  right: 2rem;
-  bottom: 2rem;
-  left: 2rem;
-  background-size: contain;
-  background-position: center;
-  opacity: 0.1;
-}
-
-footer {
-  text-align: center;
-  padding: .5rem 1rem;
-  font-size: 0.8rem;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-@media (max-width: 36rem) {
-  pre {
-    font-size: 0.7rem;
-  }
-}
+.dark pre { background: rgba(0, 0, 0, 0.3); box-shadow: inset 0rem 0rem 3rem rgba(0,0,0,.15) }

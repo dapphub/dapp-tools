@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
+    <section>
+      <div class="container">
+        <h1>Tools for dapps</h1>
+        {% include tools.html %}
+        <h1>Modular contracts for dapps</h1>
+        {% include dappsys.html %}
+      </div>
+    </section>
+    <section class=dark>
+      <div class="container">
+        <h1>Installing the DappHub toolkit</h1>
+        {% include install.html %}
+
+        <h2>Introduction to the Nix package manager</h2>
+        <p>
+        The dapp tool builds on <a href="https://nixos.org">Nix</a>, a package
+          manager with properties that make it uniquely robust, far beyond tools
+          like npm, and uniquely self-contained.
+        </p>
+        <p>
+          You don't need knowledge of Nix to operate dapp, but we recommend anyone
+          interested in system administration or software deployment to learn about it.
+        </p>
+        <p>
+          Nix's robustness is due to its use of cryptographic digests to track dependencies
+          and configurations. This fits naturally with the blockchain paradigm — we're in
+          the age of hashes.
+        </p>
+        <p>
+          Eelco Dolstra's 2006 Ph.D. thesis, <a href="https://nixos.org/~eelco/pubs/phd-thesis.pdf">
+          The Purely Functional Software Deployment Model</a> describes the system in detail.
+          Print it out for a rainy day, it's worth reading.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

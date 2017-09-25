@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
+    <section>
+      <div class="container">
+      {{ content }}
+      </div>
+    </section>
+    <section class=dark>
+      <div class="container">
+        <h1>DappHub</h1>
+        {% include tools.html %}
+
+        <h2>DappSys - Smart contract building blocks</h2>
+        {% include dappsys.html %}
+      </div>
+    </section>
+  </body>
+</html>

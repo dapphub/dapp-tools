@@ -1,0 +1,80 @@
+---
+title: dapp.tools - seth
+layout: default
+---
+
+<h1>seth <small class="text-muted">0.5.0</small></h1>
+<p class="lead">
+  Ethereum from the command line. Slice and dice transactons, query the
+  blockchain, convert between data formats, peform remote calls, estimate
+  gas usage and more...
+</p>
+
+<script type="text/javascript"
+        src="https://asciinema.org/a/GsgEuOcXPjcJzLSEs8TekbBLD.js"
+        data-autoplay=0
+        data-preload=1
+        data-rows=20
+        data-theme=monokai
+        id="asciicast-GsgEuOcXPjcJzLSEs8TekbBLD" async></script>
+
+<pre class="small">
+COMMANDS
+
+<strong>abi</strong>        convert an ABI from Solidity to JSON
+<strong>age</strong>        show the age of the current block
+<strong>balance</strong>    show the balance of an account
+<strong>block</strong>      print a table of information about a specific block
+<strong>call</strong>       call a contract without updating the blockchain
+<strong>calldata</strong>   pack a signature and a list of arguments into calldata
+<strong>code</strong>       print the bytecode of an object on the blockchain
+<strong>estimate</strong>   estimate how much gas a transaction is likely to use
+<strong>help</strong>       print help about seth or one of its subcommands
+<strong>keccak</strong>     print the Keccak hash of an arbitrary piece of data
+<strong>logs</strong>       print the transaction logs of some contract
+<strong>ls</strong>         display a list of your local accounts and balances
+<strong>nonce</strong>      show the number of transactions sent from an address
+<strong>publish</strong>    publish an already-signed transaction to the blockchain
+<strong>receipt</strong>    wait for a transaction receipt to appear and print it
+<strong>send</strong>       sign and publish a transaction to the blockchain
+<strong>sign</strong>       sign arbitrary data with one of your account keys
+<strong>storage</strong>    show the value of a storage slot on the blockchain
+<strong>tx</strong>         print a table of information about a transaction
+
+OPTIONS
+
+-B, --block=&lt;number&gt;       block number (default: `latest')
+
+-F, --from=&lt;sender&gt;        account to send transaction from
+-G, --gas=&lt;number&gt;         number of units of gas to provide
+-P, --gas-price=&lt;amount&gt;   price of each gas unit (in wei)
+-N, --nonce=&lt;number&gt;       nonce value to use for the transaction
+-V, --value=&lt;amount&gt;       amount of ether to send (in wei)
+
+--rpc-host=&lt;host&gt;          RPC endpoint host (default: `localhost')
+--rpc-port=&lt;port&gt;          RPC endpoint port (default: `8545')
+
+-j, --json                 print raw JSON to standard output
+
+SPECIAL COMMANDS
+
+--from-ascii               convert text data into hexdata
+--from-bin                 convert binary data into hexdata
+--to-bytes32               convert hexdata into bytes32 form
+--to-uint256               convert a number into uint256 form
+</pre>
+
+<h2>Examples</h2>
+
+<p>TODO</p>
+
+<h2>Installing</h2>
+
+{% include install.html %}
+
+<h2>Contributing</h2>
+
+<ul>
+  <li>Log issues to our github <a href="https://github.com/dapphub/seth/issues">issue tracker</a></li>
+  <li>Get in touch with us at <a href="https://dapp.chat">dapp.chat</a></li>
+</ul>

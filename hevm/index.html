@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<h1>hevm <small class="text-muted">0.8</small></h1>
+<p class="lead">
+  An EVM for testing and verification, with a nimble debugger that runs in the terminal.
+</a>
+
+<script type="text/javascript"
+        src="https://asciinema.org/a/5j8eec71hl55l16hsbrn91j8e.js"
+        data-autoplay=0
+        data-preload=1
+        data-rows=20
+        data-theme=monokai
+        id="asciicast-5j8eec71hl55l16hsbrn91j8e" async></script>
+
+<h2>Usage</h2>
+
+<pre class="small">
+  <strong>$ hvem dapp-test</strong>            run dappsys unit tests
+  <strong>$ hvem interactive</strong>          enter the interactive debugger
+</pre>
+
+<h2>About</h2>
+
+<p>
+  The hevm project is an implementation of the Ethereum virtual machine (EVM)
+  made specifically for unit testing and debugging smart contracts. It is
+  developed by DappHub and integrates especially well with the dapp tool suite.
+  The hevm command line program can run unit tests, interactively debug
+  contracts while showing the Solidity source, or run arbitrary EVM code.
+</p>
+
+<p>
+  This software is alpha quality. It is not yet a 100% complete EVM (almost
+  everything is implemented, but e.g. the precompiled contracts are missing).
+  Testing against the Ethereum Foundation's reference test suite is begun but
+  not completed. See the hevm v0.8
+  <a href="https://hydra.dapp.tools/build/135/download/1/index.html">test report.</a>
+</p>
+
+<h2>Installation</h2>
+
+{% include install.html %}
+
+<h2>Contributing</h2>
+
+<ul>
+  <li>Log issues to our github <a href="https://github.com/dapphub/hevm/issues">issue tracker</a></li>
+  <li>Get in touch with us at <a href="https://dapp.chat">dapp.chat</a></li>
+</ul>

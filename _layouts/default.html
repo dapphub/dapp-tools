@@ -5,16 +5,24 @@
     {% include nav.html %}
     <section>
       <div class="container">
-      {{ content }}
+        <div class="row">
+          <div class="col-12">
+            {{ content }}
+          </div>
+        </div>
       </div>
     </section>
-    <section class=dark>
+    <section class="dark">
       <div class="container">
-        <h1>DappHub</h1>
-        {% include tools.html %}
+        <div class="row">
+          <div class="col-12">
+            <h1>DappHub</h1>
+            {% include tools.html %}
 
-        <h2>DappSys - Smart contract building blocks</h2>
-        {% include dappsys.html %}
+            <h2>DappSys <small>- smart contract building blocks</small></h2>
+            {% include dappsys.html %}
+          </div>
+        </div>
       </div>
     </section>
   </body>

@@ -1,21 +1,23 @@
-We recommend using the <a href=https://nixos.org>Nix</a> package manager</a>.
-It works on Linux and OS X and is completely unobtrusive. We maintain our own
-channel for distributions of our software along with the Solidity compiler
-(multiple versions).
+<p>
+  We recommend using the <a href=https://nixos.org>Nix</a> package manager</a>.
+  It works on Linux and OS X and is completely unobtrusive. We maintain our own
+  channel for distributions of our software along with the Solidity compiler
+  (multiple versions).
+</p>
 
 <pre>
-  <b># Install Nix:</b>
+  <strong># Install Nix:</strong>
   curl https://nixos.org/nix/install | sh
 
-  <b># Add the <!--
-  --><a class="darken" href=https://github.com/dapphub/nixpkgs-dapphub>DappHub channel</a> to Nix:</b>
+  <strong># Add the <!--
+  --><a href=https://github.com/dapphub/nixpkgs-dapphub>DappHub channel</a> to Nix:</strong>
   nix-channel --add https://nix.dapphub.com/pkgs/dapphub
   nix-channel --update
 
-  <b># Install one or many tools as required:</b>
+  <strong># Install one or many tools as required:</strong>
   nix-env -iA dapphub.{<!--
-  --><a class="darken" href=https://github.com/dapphub/dapp>dapp</a>,<!--
-  --><a class="darken" href=https://github.com/dapphub/hevm>hevm</a>,<!--
-  --><a class="darken" href=https://github.com/dapphub/seth>seth</a>,<!--
-  --><a class="darken" href=https://github.com/ethereum/solidity>solc</a>}
+  --><a href=https://github.com/dapphub/dapp>dapp</a>,<!--
+  --><a href=https://github.com/dapphub/hevm>hevm</a>,<!--
+  --><a href=https://github.com/dapphub/seth>seth</a>,<!--
+  --><a href=https://github.com/ethereum/solidity>solc</a>}
 </pre>

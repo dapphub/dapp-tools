@@ -1,3 +1,4 @@
 title: dapp.tools
 description: DappHub Tools
-highlighting: rouge
+
+highlighter: rouge

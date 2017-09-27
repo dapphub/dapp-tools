@@ -1,4 +1,12 @@
-<nav>
-  <a href=/>dapp.tools</a>
+<nav class="navbar">
+  <a class="navbar-brand" href={{ "/" | relative_url }}>
+    <img src={{ "/images/logo.svg" | relative_url }} width="30" height="30">
+    <span>dapp.tools</span>
+  </a>
+  <ul class="nav justify-content-end">
+    <li><a class="nav-link" href={{ "dapp/" | relative_url }}>dapp</a></li>
+    <li><a class="nav-link" href={{ "seth/" | relative_url }}>seth</a></li>
+    <li><a class="nav-link" href={{ "hevm/"| relative_url }}>hevm</a></li>
+    <li><a class="nav-link" href={{ "dappsys/" | relative_url }}>dappsys</a></li>
+  </ul>
 </nav>
-<img src={{ "/images/logo.svg" | relative_url }}>

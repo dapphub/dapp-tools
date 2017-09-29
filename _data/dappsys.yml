@@ -1,0 +1,69 @@
+ds-auth:
+  title: DSAuth
+  lead: Fully-updatable unobtrusive auth
+  github: dapphub/ds-auth
+
+ds-cache:
+  title: DSCache
+  lead: DSValue with expiry
+  github: dapphub/ds-cache
+
+ds-exec:
+  title: DSExec
+  lead: Better exception handling
+  github: dapphub/ds-exec
+
+ds-guard:
+  title: DSGuard
+  lead: Permissions whitelist with address-level granularity
+  github: dapphub/ds-guard
+
+ds-math:
+  title: DSMath
+  lead: Safe arithmatic
+  github: dapphub/ds-math
+
+ds-multisig:
+  title: DSMultisig
+  lead: Multisig with a command-line interface
+  github: dapphub/ds-multisig
+
+ds-note:
+  title: DSNote
+  lead: Log function calls as events
+  github: dapphub/ds-note
+
+ds-proxy:
+  title: DSProxy
+  lead: Execute transactions by proxy & sequences of transactions atomically
+  github: dapphub/ds-proxy
+
+ds-roles:
+  title: DSRoles
+  lead: A DSAuthority for up to 256 roles.
+  github: dapphub/ds-roles
+
+ds-stop:
+  title: DSStop
+  lead: DSAuth-protected stop and start
+  github: dapphub/ds-stop
+
+ds-thing:
+  title: DSThing
+  lead: your things should be DSThings
+  github: dapphub/ds-thing
+
+ds-token:
+  title: DSToken
+  lead: An ERC20 token with wholesome memes
+  github: dapphub/ds-token
+
+ds-value:
+  title: DSValue
+  lead: Set and get a value
+  github: dapphub/ds-value
+
+ds-vault:
+  title: DSVault
+  lead: DSAuth-protected ERC20 token vault
+  github: dapphub/ds-vault

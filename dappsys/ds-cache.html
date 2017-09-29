@@ -1,0 +1,31 @@
+---
+title: dappsys/ds-cache
+layout: default
+id: ds-cache
+---
+
+{% include dappsys/nav.html %}
+
+<p>
+  Authorized users can set and unset a value and a time at which the
+  value will expire. Anyone can read the value and check freshness.
+</p>
+
+<h3>Actions</h3>
+<dl class="row">
+  <dt class="col-sm-3"><code>peek</code></dt>
+  <dd class="col-sm-9">
+    return the stored value along with boolean <code>true</code> if the value is
+    still valid and <code>false</code> if not.
+  </dd>
+
+  <dt class="col-sm-3"><code>read</code></dt>
+  <dd class="col-sm-9">return either the stored value or an exception if expired</dd>
+
+  <dt class="col-sm-3"><code>prod</code></dt>
+  <dd class="col-sm-9">set a value and expiry (requires auth)</dd>
+</dl>
+
+{% highlight js %}
+  {% include git/dappsys/ds-cache/src/cache.sol %}
+{% endhighlight %}

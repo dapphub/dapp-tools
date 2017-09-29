@@ -33,3 +33,7 @@ pre { border-radius: .5rem; }
 pre.small, .highlight { font-size: 0.85rem; }
 .dark pre { color: #fff; background: rgba(0, 0, 0, 0.3); box-shadow: inset 0rem 0rem 3rem rgba(0,0,0,.15) }
 .dark pre { border-width: 0; }
+
+.text-muted a { color: inherit }
+.c1:first-child { margin-left: -0.9rem;}
+

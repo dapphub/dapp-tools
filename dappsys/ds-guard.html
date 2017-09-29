@@ -1,0 +1,36 @@
+---
+title: dappsys/ds-guard
+layout: default
+id: ds-guard
+---
+
+{% include dappsys/nav.html %}
+
+<p>
+  Facilitates access to a permissions whitelist which maps addresses to function
+  signatures. Intended to be used as an <code>authority</code> for
+  <a href={{ "dappsys/ds-auth.html" | relative_url }}>ds-auth</a> where it acts
+  as a lookup table for the <code>canCall</code> function, providing boolean
+  answers as to whether a particular address is authorized to call a function
+  at another address.
+</p>
+<p>
+  TODO: describe the lookup table and ANY
+</p>
+
+{% highlight js %}
+  src dst sig
+{% endhighlight %}
+
+<h3>Actions</h3>
+<dl class="row">
+  <dt class="col-sm-3"><code>permit</code></dt>
+  <dd class="col-sm-9">add an address to the whitelist (requires auth)</dd>
+
+  <dt class="col-sm-3"><code>forbid</code></dt>
+  <dd class="col-sm-9">remove an address from the whitelist (requires auth)</dd>
+</dl>
+
+{% highlight js %}
+  {% include git/dappsys/ds-guard/src/guard.sol %}
+{% endhighlight %}

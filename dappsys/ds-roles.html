@@ -1,0 +1,92 @@
+---
+title: dappsys/ds-roles
+layout: default
+id: ds-roles
+---
+
+{% include dappsys/nav.html %}
+
+<p>
+  A role-driven <code>authority</code> for <code>
+  <a href={{ "dappsys/ds-auth.html" | relative_url }}>ds-auth</a></code> which
+  facilitates access to lists of user roles and capabilities. Works as a set of
+  lookup tables for the <code>canCall</code> function to provide boolean answers
+  as to whether a user is authorized to call a given function at given address.
+</p>
+
+<p>
+  The ability to check permissions in constant time is entirely due to the
+  artificial constraint on the number of roles. 256 was chosen because this lets
+  us abuse the large word size and cheap bitwise operations.
+</p>
+
+<p>
+  In the context of providing <code>authority</code> for DSAuth, a <code>user
+  </code> is the <code>msg.sender</code>. DSRoles provides 3 different ways of
+  permitting/forbidding function call access to users, with root access being
+  the most permissive:
+  <ol>
+    <li>
+      <strong>Root Users</strong> - any users added to the <code>_root_users</code>
+      whitelist will be authorized to call any function regardless of what roles or
+      capabilities might be defined.
+    </li>
+    <li>
+      <strong>Public Capabilities</strong> - public capabilities are global
+      capabilities which apply to all users and take precedence over any user
+      specific role-capabilities which might be defined.
+    </li>
+    <li>
+      <strong>Role Capabilities</strong> - capabilities which are associated
+      with a particular role. Role capabilities are only checked if the user
+      does not have root access and the capability is not public.
+    </li>
+  </ol>
+</p>
+
+<p>
+  <strong>Roles</strong> are assigned to users by number:
+</p>
+{% highlight js %}
+uint8 owner_role = 0;
+uint8 user_role = 1;
+
+setUserRole(owner_address, owner_role, true);
+setUserRole(user_address, user_role, true);
+{% endhighlight %}
+
+<p>
+  <strong>Capabilities</strong> can be assigned to anyone (public) or to a
+  <code>role</code> permitting/forbidding access to a particular function
+  at a given address:
+</p>
+{% highlight js %}
+address target = 0x123;  // code address
+
+bytes4 withdraw_sig = bytes4(sha3("withdrawAll()"));
+setRoleCapability(owner_role, target, withdraw_sig, true);
+setRoleCapability(user_role, target, withdraw_sig, false);
+
+bytes4 deposit_sig = bytes4(sha3("deposit(uint256)"));
+setRoleCapability(user_role, target, deposit_sig, true);
+
+{% endhighlight %}
+
+<h3>Actions</h3>
+<dl class="row">
+  <dt class="col-sm-4"><code>setRootUser</code></dt>
+  <dd class="col-sm-8">grant root access to a given user (requires auth)</dd>
+
+  <dt class="col-sm-4"><code>setUserRole</code></dt>
+  <dd class="col-sm-8">assign a role to given user (requires auth)</dd>
+
+  <dt class="col-sm-4"><code>setPublicCapability</code></dt>
+  <dd class="col-sm-8">set public permissions for a given capability (requires auth)</dd>
+
+  <dt class="col-sm-4"><code>setRoleCapability</code></dt>
+  <dd class="col-sm-8">set a capability for a given role (requires auth)</dd>
+</dl>
+
+{% highlight js %}
+  {% include git/dappsys/ds-roles/src/roles.sol %}
+{% endhighlight %}

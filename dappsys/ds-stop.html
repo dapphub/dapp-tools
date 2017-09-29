@@ -1,0 +1,31 @@
+---
+title: dappsys/ds-stop
+layout: default
+id: ds-stop
+---
+
+{% include dappsys/nav.html %}
+
+<p>
+  A simple package that adds a stoppable modifier, with DSAuth protected
+  <code>stop</code> and <code>start</code> functions. Decorating a function
+  with the <code>stoppable</code> modifier will ensure that it can only execute
+  if the state is not <code>stopped</code>.
+</p>
+<p>
+  Useful in situations where one needs to halt a system for maintenance, in
+  case of emergency, or to simply wind it down after a temporary lifespan.
+</p>
+
+<h3>Actions</h3>
+<dl class="row">
+  <dt class="col-sm-3"><code>stop</code></dt>
+  <dd class="col-sm-9">Set <code>stopped</code> to true (requires auth)</dd>
+
+  <dt class="col-sm-3"><code>start</code></dt>
+  <dd class="col-sm-9">Set <code>stopped</code> to false (requires auth)</dd>
+</dl>
+
+{% highlight js %}
+  {% include git/dappsys/ds-stop/src/stop.sol %}
+{% endhighlight %}

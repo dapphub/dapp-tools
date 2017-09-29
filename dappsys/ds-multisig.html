@@ -1,0 +1,76 @@
+---
+title: dappsys/ds-multisig
+layout: default
+id: ds-multisig
+---
+
+{% include dappsys/nav.html %}
+
+<p>
+  The ds-multisig library is <code>DSGroup</code> with a command-line
+  interface. A list of <code>members</code>, the required <code>quorum
+  </code> and the <code>window</code> of time in which actions
+  must be approved are fixed when the <code>DSGroup</code> contract is
+  created. Actions can then be proposed, confirmed and triggered once a
+  group quorum has been reached.
+</p>
+
+<h2>Installation & deployment</h2>
+
+<p>
+  Install <code><a href={{ "dapp/" | relative_url }}>dapp</a></code> to build
+  and deploy the contract:
+</p>
+
+{% highlight bash %}
+  dapp build
+  dapp deploy DSGroup '[
+    0011111111111111111111111111111111111111, \
+    0022222222222222222222222222222222222222, \
+    0033333333333333333333333333333333333333  \
+  ]' 2 86400
+{% endhighlight %}
+
+<p>
+  Install the <code><a href={{ "seth/" | relative_url }}>seth</code></a>
+  dependency in order to use the command line interface. Then type
+  <code>make</code> from the ds-multisig directory to install the <code>
+  ds-group</code> CLI tool:
+</p>
+
+
+{% highlight bash %}
+Usage: ds-group <command> <group> [<args>]
+   or: ds-group <command> --help
+
+Commands:
+
+action        print information about a multisig action
+confirm       confirm a proposed multisig action
+ls            list already-proposed multisig actions
+propose       propose a new multisig action
+trigger       trigger a confirmed multisig action
+verify        verify the meaning of a multisig action
+{% endhighlight %}
+
+<h2>Examples</h2>
+<p>TODO</p>
+
+<hr>
+<h3>ds-multisig/src/group.sol</h3>
+<hr>
+
+<dl class="row">
+  <dt class="col-sm-3"><code>propose</code></dt>
+  <dd class="col-sm-9">propose a new action</dd>
+
+  <dt class="col-sm-3"><code>confirm</code></dt>
+  <dd class="col-sm-9">confirm a proposed action</dd>
+
+  <dt class="col-sm-3"><code>trigger</code></dt>
+  <dd class="col-sm-9">trigger a confirmed action</dd>
+</dl>
+
+{% highlight js %}
+  {% include git/dappsys/ds-multisig/src/group.sol %}
+{% endhighlight %}

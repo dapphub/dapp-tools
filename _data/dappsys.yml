@@ -50,7 +50,7 @@ ds-stop:
 
 ds-thing:
   title: DSThing
-  lead: your things should be DSThings
+  lead: Your things should be DSThings
   github: dapphub/ds-thing
 
 ds-token:

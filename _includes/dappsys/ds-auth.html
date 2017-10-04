@@ -1,0 +1,49 @@
+<p>
+  Provides a flexible and updatable auth pattern which is completely separate
+  from application logic. By default, the <code>auth</code> modifier will
+  restrict function-call access to the including contract owner and the including
+  contract itself.
+<p>
+</p>
+  In addition, fine-grained function access can be controlled by specifying an
+  <code>authority</code> - a contract which implements the <code>DSAuthority</code>
+  interface to define custom access permissions.
+</p>
+
+<p>
+  Dappsys provides a couple of ready-made authority contracts, <code>
+  <a href={{ "dappsys/ds-guard.html" | relative_url }}>ds-guard</a></code> and
+  <code><a href={{ "dappsys/ds-roles.html" | relative_url }}>ds-roles</a></code>,
+  which can be used as authorities where updatable fine-grained permissioned auth
+  is required.
+</p>
+
+<h3>Usage</h3>
+
+<p>
+  The <code>auth</code> <strong>modifier</strong> provided by DSAuth triggers the
+  internal <code>isAuthorized</code> function to require that the <code>msg.sender</code>
+  is authorized ie. the sender is either:
+</p>
+<ol>
+  <li>the contract <code>owner</code>;</li>
+  <li>the contract itself;</li>
+  <li>or has been granted permission via a specified <code>authority</code>.</li>
+</ol>
+
+{% highlight js %}
+function myProtectedFunction() auth {}
+{% endhighlight %}
+
+<h3>Actions</h3>
+<dl class="row">
+  <dt class="col-sm-3"><code>setOwner</code></dt>
+  <dd class="col-sm-9">Set a new <code>owner</code> (requires auth)</dd>
+
+  <dt class="col-sm-3"><code>setAuthority</code></dt>
+  <dd class="col-sm-9">Set a new <code>authority</code> (requires auth)</dd>
+</dl>
+
+{% highlight js %}
+  {% include git/dappsys/ds-auth/src/auth.sol %}
+{% endhighlight %}

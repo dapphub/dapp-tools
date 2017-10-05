@@ -4,13 +4,40 @@
   <body>
     {% include nav.html %}
     <section>
-      <div class="container">
+      <div class="container home">
         <div class="row">
           <div class="col-12">
-            <h1>dapp tools</h1>
+            <h1>
+              <i class="fa fa-angle-right"></i>
+              dapp tools
+            </h1>
             <p class="lead">Command-line friendly tools for blockchain development.</p>
             <p>{% include tools.html %}</p>
-            <h2>DappSys</h2>
+
+            <hr>
+            <div class="row">
+              <div class="col-9">
+                <h4>
+                  <i class="fa fa-commenting-o"></i>
+                  dapphub.chat
+                </h4>
+                <h6 class="text-muted">Powerful things happen when like-minded people connect</h6>
+                <p class="card-text">
+                  Collaboration, autonomy, transparency, diversity, entrepreneurialism, non-hierarchy.
+                </p>
+              </div>
+              <div class="col-3">
+                <a href="https://dapphub.chat" class="btn btn-outline-secondary join pull-right">
+                  <i class="fa fa-users"></i> Join
+                </a>
+              </div>
+            </div>
+            <hr>
+
+            <h2>
+              <i class="fa fa-cube"></i>
+              DappSys
+            </h2>
             <p class="lead">Safe, simple, flexible building-blocks for Ethereum contracts.</p>
             {% include dappsys.html %}
           </div>

@@ -36,7 +36,7 @@ nav.top { background: -webkit-radial-gradient(0% top, circle, rgba(84,90,182,1) 
 pre { padding: 0.5rem 0.75rem; }
 pre { margin: 1rem 0;}
 pre { overflow-x: hidden; }
-pre { background: rgba(255, 255, 255, 0.5); }
+pre { background: rgba(255, 255, 255, 0.5); box-shadow: inset 0rem 0rem 3rem rgba(0,0,0,.05) }
 pre { border: 1px solid #dddeee; }
 pre { border-radius: .5rem; }
 pre.small, .highlight { font-size: 0.85rem; }

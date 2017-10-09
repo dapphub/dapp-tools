@@ -28,16 +28,17 @@ id: dapp
 </script>
 
 <pre>
-$ <a href="#init">dapp init</a>                  bootstrap a new dapp
+$ <a href="#init">dapp init</a>                    bootstrap a new dapp
 
-$ <a href="#build">dapp build</a>                 compile the source code
-$ <a href="#test">dapp test &lt;options&gt;</a>        run the test suite
+$ <a href="#build">dapp build</a>                   compile the source code
+$ <a href="#test">dapp test &lt;options&gt;</a>          run the test suite
 
-$ <a href="#">dapp install &lt;pkg&gt;</a>         install a package
-$ <a href="#">dapp upgrade &lt;pkg&gt;</a>         upgrade a package
-$ <a href="#">dapp uninstall &lt;pkg&gt;</a>       uninstall a package
+$ <a href="#install">dapp install &lt;component&gt;</a>     install a dappsys component
+$ <a href="#update">dapp update &lt;options&gt;</a>        update component(s)
+$ <a href="#upgrade">dapp upgrade &lt;options&gt;</a>       upgrade component(s)
+$ <a href="#uninstall">dapp uninstall &lt;component&gt;</a>   uninstall a component
 
-$ <a href="#create">dapp create &lt;args&gt;</a>         deploy a contract
+$ <a href="#create">dapp create &lt;args&gt;</a>           deploy a contract
 </pre>
 
 <h3 class="cmd"><a name="init">> dapp init</a></h3>
@@ -49,7 +50,7 @@ $ <a href="#create">dapp create &lt;args&gt;</a>         deploy a contract
 <ol>
   <li>Initializes a git repo</li>
   <li>Creates a Makefile for convenience</li>
-  <li>Installs the <a href="https://github.com/dapphub/ds-test">ds-test</a> package</li>
+  <li>Installs the <a href="https://github.com/dapphub/ds-test">ds-test</a> component</li>
   <li>Creates <code>src/MyDapp.sol</code> and <code>src/MyDapp.t.sol</code> files</li>
   <li>Runs the <code>build</code> and <code>test</code> commands for the first time</li>
   <li>Commits changes to git</li>
@@ -70,7 +71,7 @@ Dappfile    Makefile    lib      out      src
 {% endhighlight %}
 
 <p>
-  After running <code>init</code> we can see that the ds-test package has been
+  After running <code>init</code> we can see that the ds-test component has been
   installed to the <code>lib</code> directory and all the files from <code>lib</code>
   and <code>src</code> have been compiled to <code>out</code>.
 </p>
@@ -117,8 +118,9 @@ DSTest.bin-runtime
   The <code>test</code> command uses <code>ethrun</code> and <code>ds-test</code>
   to compile the source and run any accompanying unit tests defined in
   <code>src</code>. The <code>ds-test</code> library makes it easy to write
-  native unit tests in Solidity. See the <a href="">ds-test docs</a>
-  for a detailed guide.
+  native unit tests in Solidity. See the
+  <a href="https://dapp.readthedocs.io/en/latest/unit_testing.html#general-testing">
+  ds-test docs</a> for a detailed guide.
 </p>
 
 {% highlight bash %}
@@ -135,6 +137,81 @@ Trying MyDappTest...
 
 2 tests passed, 0 failed
 Took 0.083s
+{% endhighlight %}
+
+<h3 class="cmd"><a name="install">> dapp install</a></h3>
+<p>
+  Dapp provides for the publishing and re-use of smart contract <code>components</code>
+  like those provided by the <a href={{ "dappsys" | relative_url }}>dappsys</a>
+  library. In the near future we expect to see the development of more sophisticated
+  package managers for Ethereum but for the time being <code>dapp</code> simply
+  faciliates the <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submoduling</a>
+  of components published to github.
+</p>
+
+<p>
+  When a github user is not specified, dapp will assume that the component is from the
+  dappsys library.
+</p>
+
+{% highlight bash %}
+$ dapp install ds-auth
+{% endhighlight %}
+
+<p>
+  Providing a github username allows components to be installed from any shared
+  github repo:
+</p>
+
+{% highlight bash %}
+$ dapp install apmilen/my-cool-component
+{% endhighlight %}
+
+<p>
+  Components are submoduled to the <code>lib</code> directory and can be imported
+  into a project using the submodule name.
+</p>
+
+{% highlight bash %}
+pragma solidity ^0.4.0;
+
+import "ds-auth/auth.sol";
+
+contract TestContract is DSAuth {}
+{% endhighlight %}
+
+<h3 class="cmd"><a name="update">> dapp update</a></h3>
+<p>
+  Will run against all installed components in the <code>lib</code>
+  directory when run without any arguments, or target a specific component
+  when a name is specified:
+</p>
+<p>
+  Recursively fetch all upstream changes without commiting.
+</p>
+
+{% highlight bash %}
+$ dapp update ds-auth
+{% endhighlight %}
+
+<h3 class="cmd"><a name="upgrade">> dapp upgrade</a></h3>
+<p>
+  Will run against all installed components in the <code>lib</code>
+  directory when run without any arguments, or target a specific component
+  when a name is specified:
+</p>
+<p>
+  Recursively pull all upstream changes and save to the project repo via git
+  commit.
+</p>
+{% highlight bash %}
+$ dapp upgrade ds-auth
+{% endhighlight %}
+
+<h3 class="cmd"><a name="uninstall">> dapp uninstall</a></h3>
+<p>Remove an installed component:</p>
+{% highlight bash %}
+$ dapp uninstall ds-auth
 {% endhighlight %}
 
 <h3 class="cmd"><a name="create">> dapp create</a></h3>

@@ -8,7 +8,7 @@ id: hevm
   <i class="fa fa-angle-right"></i>
   hevm
   <small class="text-muted">
-    <a href="https://github.com/dapphub/hevm" title="v0.8">
+    <a href="https://github.com/dapphub/hevm">
       <span class="fa fa-github"></span>
     </a>
   </small>
@@ -18,22 +18,26 @@ id: hevm
 </p>
 
 <script type="text/javascript"
-        src="https://asciinema.org/a/5j8eec71hl55l16hsbrn91j8e.js"
+        src="https://asciinema.org/a/dTPBLV10gixo62ngiSFTK2dVu.js"
         data-autoplay=0
         data-preload=1
-        data-rows=20
         data-theme=monokai
-        id="asciicast-5j8eec71hl55l16hsbrn91j8e" async></script>
+        id="asciicast-dTPBLV10gixo62ngiSFTK2dVu" async></script>
 
-<h2>Usage</h2>
 
 <pre class="small">
-  <strong>$ hvem dapp-test</strong>            run dappsys unit tests
-  <strong>$ hvem interactive</strong>          enter the interactive debugger
+COMMANDS
+
+<strong>$ hvem dapp-test</strong>            run dappsys unit tests
+<strong>$ hvem interactive</strong>          enter the interactive debugger
+
+OPTIONS
+
+--json-file      run against a specific output file
+--rpc            fetch external contracts via rpc from the latest block
 </pre>
 
 <h2>About</h2>
-
 <p>
   The hevm project is an implementation of the Ethereum virtual machine (EVM)
   made specifically for unit testing and debugging smart contracts. It is
@@ -46,9 +50,50 @@ id: hevm
   This software is alpha quality. It is not yet a 100% complete EVM (almost
   everything is implemented, but e.g. the precompiled contracts are missing).
   Testing against the Ethereum Foundation's reference test suite is begun but
-  not completed. See the hevm v0.8
-  <a href="https://hydra.dapp.tools/build/135/download/1/index.html">test report.</a>
+  not completed. See the hevm v0.10
+  <a href="https://hydra.dapp.tools/build/183/download/1/index.html">test report.</a>
 </p>
+
+<h2>Usage</h2>
+<p>
+  After running <code>dapp build</code>, you can then run <code>hevm dapp-test</code>
+  to run a <code>ds-test</code> suite, or <code>hevm interactive</code> to enter the
+  debugger. If the <code>out</code> directory contains multiple <code>.t.sol</code>
+  files then the <code>--json-file</code> flag should be used to specify a target:
+</p>
+
+{% highlight bash %}
+  hevm dapp-test --json-file out/my-dapp.t.sol.json
+{% endhighlight %}
+
+<h2>Key Bindings</h2>
+
+<p>
+  The following key bindings are available when running in interactive mode:
+</p>
+
+<dl class="row">
+  <dt class="col-sm-2"><code>n</code></dt>
+  <dd class="col-sm-10">step forward by one instruction</dd>
+
+  <dt class="col-sm-2"><code>p</code></dt>
+  <dd class="col-sm-10">step backward by one instruction</dd>
+
+  <dt class="col-sm-2"><code>N</code></dt>
+  <dd class="col-sm-10">
+    step several instructions until the source map location changes (like
+    stepping by subexpression)
+  </dd>
+
+  <dt class="col-sm-2"><code>Ctl-n</code></dt>
+  <dd class="col-sm-10">
+    like <code>N</code> except that it steps over <code>CALL</code> and
+    <code>CREATE</code>
+  </dd>
+
+  <dt class="col-sm-2"><code>Esc</code></dt>
+  <dd class="col-sm-10">exit</dd>
+</dl>
 
 <h2>Installation</h2>
 

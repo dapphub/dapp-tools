@@ -16,7 +16,7 @@ h1 { font-size: 2rem; }
 h2 { font-size: 1.75rem; margin: 1.75rem 0 0.5rem 0 }
 h3 { font-size: 1.5rem; }
 h3 { font-size: 1.25rem; }
-h3.cmd { font-family: monospace; font-weight: bold; margin: 2rem 0 0.5rem -1.5rem; }
+h3.cmd { font-family: monospace; font-weight: bold; margin: 2rem 0 0.5rem 0rem; }
 
 nav a { font-weight: normal; }
 nav.top a { color: white; }

@@ -5,11 +5,10 @@ id: dapp
 ---
 
 <h1>
-  <i class="fa fa-angle-right"></i>
-  dapp
+  Dapp
   <small class="text-muted">
-    <a href="https://github.com/dapphub/dapp" title="v0.5.0">
-      <span class="fa fa-github"></span>
+    <a href="https://github.com/dapphub/dapp">
+      <img src="https://img.shields.io/github/tag/dapphub/dapp.svg">
     </a>
   </small>
 </h1>
@@ -41,7 +40,7 @@ $ <a href="#uninstall">dapp uninstall &lt;component&gt;</a>   uninstall a compon
 $ <a href="#create">dapp create &lt;args&gt;</a>           deploy a contract
 </pre>
 
-<h3 class="cmd"><a name="init">> dapp init</a></h3>
+<h3 class="cmd"><a name="init">dapp init</a></h3>
 <p>
   The <code>init</code> command runs through a few setup tasks to bootsrap a new
   project:
@@ -76,7 +75,7 @@ Dappfile    Makefile    lib      out      src
   and <code>src</code> have been compiled to <code>out</code>.
 </p>
 
-<h3 class="cmd"><a name="build">> dapp build</a></h3>
+<h3 class="cmd"><a name="build">dapp build</a></h3>
 <p>
   The <code>build</code> command invokes <code>solc</code> to compile all code in
   <code>src</code> and <code>lib</code> to <code>out</code>.
@@ -113,7 +112,7 @@ DSTest.bin-runtime
   whilst *.bin files also include constructor calldata.
 </p>
 
-<h3 class="cmd"><a name="test">> dapp test</a></h3>
+<h3 class="cmd"><a name="test">dapp test</a></h3>
 <p>
   The <code>test</code> command uses <code>ethrun</code> and <code>ds-test</code>
   to compile the source and run any accompanying unit tests defined in
@@ -139,7 +138,7 @@ Trying MyDappTest...
 Took 0.083s
 {% endhighlight %}
 
-<h3 class="cmd"><a name="install">> dapp install</a></h3>
+<h3 class="cmd"><a name="install">dapp install</a></h3>
 <p>
   Dapp provides for the publishing and re-use of smart contract <code>components</code>
   like those provided by the <a href={{ "dappsys" | relative_url }}>dappsys</a>
@@ -180,7 +179,7 @@ import "ds-auth/auth.sol";
 contract TestContract is DSAuth {}
 {% endhighlight %}
 
-<h3 class="cmd"><a name="update">> dapp update</a></h3>
+<h3 class="cmd"><a name="update">dapp update</a></h3>
 <p>
   Will run against all installed components in the <code>lib</code>
   directory when run without any arguments, or target a specific component
@@ -194,7 +193,7 @@ contract TestContract is DSAuth {}
 $ dapp update ds-auth
 {% endhighlight %}
 
-<h3 class="cmd"><a name="upgrade">> dapp upgrade</a></h3>
+<h3 class="cmd"><a name="upgrade">dapp upgrade</a></h3>
 <p>
   Will run against all installed components in the <code>lib</code>
   directory when run without any arguments, or target a specific component
@@ -208,13 +207,13 @@ $ dapp update ds-auth
 $ dapp upgrade ds-auth
 {% endhighlight %}
 
-<h3 class="cmd"><a name="uninstall">> dapp uninstall</a></h3>
+<h3 class="cmd"><a name="uninstall">dapp uninstall</a></h3>
 <p>Remove an installed component:</p>
 {% highlight bash %}
 $ dapp uninstall ds-auth
 {% endhighlight %}
 
-<h3 class="cmd"><a name="create">> dapp create</a></h3>
+<h3 class="cmd"><a name="create">dapp create</a></h3>
 <p>
   The <code>create</code> command takes the name of the contract, and any
   constructor parameters as arguments and deploys the contract. Dapp will

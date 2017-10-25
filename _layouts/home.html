@@ -8,76 +8,67 @@
         <div class="row">
           <div class="col-12">
             <h1>
-              <i class="fa fa-angle-right"></i>
               Tools for dapps
             </h1>
-            <p class="lead">Command-line friendly tools for blockchain development.</p>
+            <p class="lead">Command-line friendly tools for blockchain development</p>
             <p>{% include tools.html %}</p>
-            <p>If you like our tools you'll probably like our chat:</p>
-
-            <hr>
-            <div class="row">
-              <div class="col-9">
-                <h4>
-                  <i class="fa fa-commenting-o"></i>
-                  dapphub.chat
-                </h4>
-                <h6 class="text-muted">Powerful things happen when like-minded people connect</h6>
-                <p class="card-text">
-                  Collaboration, autonomy, transparency, diversity, entrepreneurialism, non-hierarchy.
-                </p>
-              </div>
-              <div class="col-3">
-                <a href="https://dapphub.chat" class="btn btn-outline-secondary join pull-right">
-                  <i class="fa fa-users"></i> Join
-                </a>
-              </div>
-            </div>
-            <hr>
-
-            <h2>
-              <i class="fa fa-cube"></i>
-              Dappsys
-            </h2>
-            <p class="lead">Safe, simple, flexible building-blocks for Ethereum contracts.</p>
-            {% include dappsys.html %}
           </div>
         </div>
       </div>
     </section>
-    <div class="dark">
     <section>
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1>Installation</h1>
-            <p class="lead">Installing the DappHub toolkit</p>
+            <h1>Installing</h1>
+            <p class="lead">Getting started with the DappHub toolkit</p>
             {% include install.html %}
-
-            <h2>About Nix</h2>
-            <p class="lead">Introduction to the Nix package manager</p>
             <p>
-              Our tools build on <a href="https://nixos.org">Nix</a>, a package
-              manager with properties that make it uniquely robust, far beyond tools
-              like npm, and uniquely self-contained.
-            </p>
-            <p>
-              You don't need knowledge of Nix in order to use these tools, but we recommend anyone
-              interested in system administration or software deployment to learn about it.
-            </p>
-            <p>
-              Nix's robustness is due to its use of cryptographic digests to track dependencies
-              and configurations. This fits naturally with the blockchain paradigm — we're in
-              the age of hashes.
-            </p>
-            <p>
-              Eelco Dolstra's 2006 Ph.D. thesis, <a href="https://nixos.org/~eelco/pubs/phd-thesis.pdf">
-              The Purely Functional Software Deployment Model</a> describes the system in detail.
-              Print it out for a rainy day, it's worth reading.
+              Our
+              post <a href="https://medium.com/dapphub/dapp-tools-and-the-nix-package-manager-c4c692c87310">“Dapp
+                tools and the Nix package manager”</a> explains what
+              makes Nix special and why we chose it for our tools.
             </p>
           </div>
         </div>
       </div>
+    </section>
+    <section>
+      <div class="container home">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="dapphub-logo">
+              The DappHub Collective
+            </h1>
+            <p class="lead">We build infrastructure for the next generation of the internet</p>
+            <p>
+              <a href="http://dapphub.com">DappHub</a> is a
+              self-organizing network of logicians, researchers,
+              designers and developers spread out across the
+              globe.
+            </p>
+            <p>
+              Our network is always growing. If you want to join, just
+              come to our chat room and introduce yourself.
+            </p>
+            <p>
+              <a href="https://dapphub.chat" class="btn btn-secondary join">
+                <i class="fa fa-users"></i> Join the DappHub chat
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container home">
+        <div class="row">
+          <div class="col-12">
+            <h1>Dappsys</h1>
+            <p class="lead">Safe, simple, flexible building-blocks for Ethereum contracts</p>
+            {% include dappsys.html %}
+          </div>
+        </div>
       </div>
     </section>
   </body>

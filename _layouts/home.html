@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-12">
             <h1>Installing</h1>
-            <p class="lead">Getting started with the DappHub toolkit</p>
+            <p class="lead">Setting up the DappHub toolkit</p>
             {% include install.html %}
             <p>
               Our
@@ -34,28 +34,34 @@
       </div>
     </section>
     <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Basics</h1>
+            <p class="lead">Quick intro to working with the dapp tools</p>
+            <p>
+              You can get started with dapp development very easily:
+            </p>
+<pre>
+<b>$</b> mkdir example
+<b>$</b> cd example
+<b>$</b> dapp init
+<b>$</b> vi src/example.sol
+<b>$</b> dapp test
+<b>$</b> dapp debug
+</pre>
+            <p>
+              For details about the <code>dapp</code> command,
+              see <a href=dapp>dapp.tools/dapp</a>.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
       <div class="container home">
         <div class="row">
           <div class="col-12">
-            <h1 class="dapphub-logo">
-              The DappHub Collective
-            </h1>
-            <p class="lead">We build infrastructure for the next generation of the internet</p>
-            <p>
-              <a href="http://dapphub.com">DappHub</a> is a
-              self-organizing network of logicians, researchers,
-              designers and developers spread out across the
-              globe.
-            </p>
-            <p>
-              Our network is always growing. If you want to join, just
-              come to our chat room and introduce yourself.
-            </p>
-            <p>
-              <a href="https://dapphub.chat" class="btn btn-secondary join">
-                <i class="fa fa-users"></i> Join the DappHub chat
-              </a>
-            </p>
+            {% include dapphub.html %}
           </div>
         </div>
       </div>

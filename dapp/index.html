@@ -17,6 +17,34 @@ id: dapp
   the comfort of the command-line.
 </p>
 
+<p>
+  The <code>dapp</code> command is the basic user-facing tool
+  in our development toolkit.
+</p>
+
+<p>
+  It is opinionated and designed to support a simple
+  and robust workflow while being fast, predictable,
+  and a good citizen of the Unix command line.
+</p>
+
+<p>
+  You can get started with dapp development very easily:
+</p>
+
+<pre>
+<b>$</b> mkdir example
+<b>$</b> cd example
+<b>$</b> dapp init
+<b>$</b> vi src/example.sol
+<b>$</b> dapp test
+<b>$</b> dapp debug
+</pre>
+
+<p>
+  Here is a little teaser movie:
+</p>
+
 <script type="text/javascript"
         src="https://asciinema.org/a/GsgEuOcXPjcJzLSEs8TekbBLD.js"
         data-autoplay=0
@@ -25,6 +53,11 @@ id: dapp
         data-theme=monokai
         id="asciicast-GsgEuOcXPjcJzLSEs8TekbBLD" async>
 </script>
+
+{% include dapphub.html %}
+
+
+<h1>Reference</h1>
 
 <pre>
 $ <a href="#init">dapp init</a>                    bootstrap a new dapp
@@ -42,37 +75,32 @@ $ <a href="#create">dapp create &lt;args&gt;</a>           deploy a contract
 
 <h3 class="cmd"><a name="init">dapp init</a></h3>
 <p>
-  The <code>init</code> command runs through a few setup tasks to bootsrap a new
-  project:
+  The <code>init</code> command bootstraps a new
+  project with some of our conventions&mdash;it will
 </p>
 
 <ol>
-  <li>Initializes a git repo</li>
-  <li>Creates a Makefile for convenience</li>
-  <li>Installs the <a href="https://github.com/dapphub/ds-test">ds-test</a> component</li>
-  <li>Creates <code>src/MyDapp.sol</code> and <code>src/MyDapp.t.sol</code> files</li>
-  <li>Runs the <code>build</code> and <code>test</code> commands for the first time</li>
-  <li>Commits changes to git</li>
+  <li>initialize a Git repository with a <code>.gitignore</code>;</li>
+  <li>create a simple <code>Makefile</code>;</li>
+  <li>install <a href="https://github.com/dapphub/ds-test">ds-test</a> as a submodule in the <code>lib</code> directory;</li>
+  <li>create sample files in the <code>src</code> directory;</li>
+  <li>run <code>dapp test</code> as a sanity check;</li>
+  <li>and finally make an initial Git commit.</li>
 </ol>
 
-{% highlight bash %}
+<pre>
 $ mkdir my-dapp
 $ cd my-dapp
 $ dapp init
-
-running init ....................
+[output omitted]
 
 2 tests passed, 0 failed
 Took 0.131s
-
-$ ls
-Dappfile    Makefile    lib      out      src
-{% endhighlight %}
+</pre>
 
 <p>
-  After running <code>init</code> we can see that the ds-test component has been
-  installed to the <code>lib</code> directory and all the files from <code>lib</code>
-  and <code>src</code> have been compiled to <code>out</code>.
+  Compiled contracts are stored in the <code>out</code> directory,
+  which is ignored by Git.
 </p>
 
 <h3 class="cmd"><a name="build">dapp build</a></h3>
@@ -81,7 +109,7 @@ Dappfile    Makefile    lib      out      src
   <code>src</code> and <code>lib</code> to <code>out</code>.
 </p>
 
-{% highlight bash %}
+<pre>
 $ dapp build
 
 running build ....................
@@ -101,7 +129,7 @@ MyDapp.t.sol.json
 DSTest.abi
 DSTest.bin
 DSTest.bin-runtime
-{% endhighlight %}
+</pre>
 
 <p>
   The <code>build</code> command outputs .abi files - the JSON representation of a
@@ -122,9 +150,8 @@ DSTest.bin-runtime
   ds-test docs</a> for a detailed guide.
 </p>
 
-{% highlight bash %}
+<pre>
 $ dapp test
-
 + dapp clean
 + rm -rf out
 Running 2 tests for src/MyDapp.t.sol:MyDappTest
@@ -136,7 +163,7 @@ Trying MyDappTest...
 
 2 tests passed, 0 failed
 Took 0.083s
-{% endhighlight %}
+</pre>
 
 <h3 class="cmd"><a name="install">dapp install</a></h3>
 <p>
@@ -153,31 +180,31 @@ Took 0.083s
   dappsys library.
 </p>
 
-{% highlight bash %}
+<pre>
 $ dapp install ds-auth
-{% endhighlight %}
+</pre>
 
 <p>
   Providing a github username allows components to be installed from any shared
   github repo:
 </p>
 
-{% highlight bash %}
+<pre>
 $ dapp install apmilen/my-cool-component
-{% endhighlight %}
+</pre>
 
 <p>
   Components are submoduled to the <code>lib</code> directory and can be imported
   into a project using the submodule name.
 </p>
 
-{% highlight bash %}
+<pre>
 pragma solidity ^0.4.0;
 
 import "ds-auth/auth.sol";
 
 contract TestContract is DSAuth {}
-{% endhighlight %}
+</pre>
 
 <h3 class="cmd"><a name="update">dapp update</a></h3>
 <p>
@@ -189,9 +216,9 @@ contract TestContract is DSAuth {}
   Recursively fetch all upstream changes without commiting.
 </p>
 
-{% highlight bash %}
+<pre>
 $ dapp update ds-auth
-{% endhighlight %}
+</pre>
 
 <h3 class="cmd"><a name="upgrade">dapp upgrade</a></h3>
 <p>
@@ -203,15 +230,15 @@ $ dapp update ds-auth
   Recursively pull all upstream changes and save to the project repo via git
   commit.
 </p>
-{% highlight bash %}
+<pre>
 $ dapp upgrade ds-auth
-{% endhighlight %}
+</pre>
 
 <h3 class="cmd"><a name="uninstall">dapp uninstall</a></h3>
 <p>Remove an installed component:</p>
-{% highlight bash %}
+<pre>
 $ dapp uninstall ds-auth
-{% endhighlight %}
+</pre>
 
 <h3 class="cmd"><a name="create">dapp create</a></h3>
 <p>
@@ -227,7 +254,7 @@ $ dapp uninstall ds-auth
   supply and a name as constructor parameters:
 </p>
 
-{% highlight bash %}
+<pre>
 pragma solidity ^0.4.0;
 
 contract MyDapp {
@@ -242,21 +269,21 @@ contract MyDapp {
     name = name_;
   }
 }
-{% endhighlight %}
+</pre>
 
 <p>
   Ensure that an Ethereum client is running and invoke create with the contract
   name and constructor parameters
 </p>
 
-{% highlight bash %}
+<pre>
 $ dapp create MyDapp 10000 "MyCoolToken"
 + seth send --create out/MyDapp.bin 'MyDapp(uint256,string)' 10000 MyCoolToken
 seth-send: Published transaction with 1688 bytes of calldata.
 seth-send: 0x4df5fdad614a88702439b10dd3002adb7869b339413011ba8ac69b4f07d9f10d
 seth-send: Waiting for transaction receipt...
 seth-send: Transaction included in block .
-{% endhighlight %}
+</pre>
 
 <p>
   See the dapp <a href="https://dapp.readthedocs.io/">developer docs</a> for a

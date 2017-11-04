@@ -5,18 +5,11 @@
 </p>
 
 <pre>
-  <strong># Install Nix:</strong>
-  curl https://nixos.org/nix/install | sh
-
-  <strong># Add the <!--
-  --><a href=https://github.com/dapphub/nixpkgs-dapphub>DappHub channel</a> to Nix:</strong>
-  nix-channel --add https://nix.dapphub.com/pkgs/dapphub
-  nix-channel --update
-
-  <strong># Install one or more tools:</strong>
-  nix-env -iA dapphub.{<!--
+<b>$</b> curl https://nixos.org/nix/install | sh
+<b>$</b> nix-channel --add https://nix.dapphub.com/pkgs/dapphub
+<b>$</b> nix-channel --update
+<b>$</b> nix-env -iA dapphub.{<!--
   --><a href=https://github.com/dapphub/dapp>dapp</a>,<!--
   --><a href=https://github.com/dapphub/hevm>hevm</a>,<!--
-  --><a href=https://github.com/dapphub/seth>seth</a>,<!--
-  --><a href=https://github.com/ethereum/solidity>solc</a>}
+  --><a href=https://github.com/dapphub/seth>seth</a>}
 </pre>

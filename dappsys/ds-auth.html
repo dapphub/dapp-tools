@@ -4,7 +4,12 @@ layout: default
 id: ds-auth
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-{% include dappsys/ds-auth.html %}
+{% capture docs %}{% include git/dappsys/ds-auth/README.md %}{% endcapture %}
+{{ docs | markdownify }}
+
+{% highlight js %}
+  {% include git/dappsys/ds-auth/src/auth.sol %}
+{% endhighlight %}
 

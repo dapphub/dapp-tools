@@ -1,31 +1,12 @@
 ---
 title: dappsys/ds-note
 layout: default
-id: ds-note
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-<p>
-  Provides generic function call logging by way of a <code>note</code> modifier
-  which triggers the capture of data as a <code>LogNote</code> event containing:
-</p>
-
-<ul>
-  <li><code>msg.sig</code> (indexed)</li>
-  <li><code>msg.sender</code> (indexed)</li>
-  <li>The first function parameter (indexed)</li>
-  <li>The second function parameter (indexed)</li>
-  <li><code>msg.value</code></li>
-  <li><code>msg.data</code></li>
-</ul>
-
-<p>
-  Functions decorated with the <code>note</code> modifier will log this information
-  whenever they are called with the indexed fields being queryable by blockchain
-  clients. This covers most usecases for events, making this an easy way to
-  quickly add event logging to your dapp.
-</p>
+{% capture docs %}{% include git/dappsys/ds-note/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-note/src/note.sol %}

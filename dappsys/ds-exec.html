@@ -1,15 +1,12 @@
 ---
 title: dappsys/ds-exec
 layout: default
-id: ds-exec
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-<p>
-  Base contract which wraps <code>.call</code> with internals <code>.exec</code>
-  and <code>.tryExec</code> to handle exceptions more naturally.
-</p>
+{% capture docs %}{% include git/dappsys/ds-exec/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-exec/src/exec.sol %}

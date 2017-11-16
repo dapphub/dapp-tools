@@ -1,10 +1,12 @@
 ---
 title: dappsys/ds-math
 layout: default
-id: ds-math
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
+
+{% capture docs %}{% include git/dappsys/ds-math/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-math/src/math.sol %}

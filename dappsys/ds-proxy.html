@@ -1,10 +1,12 @@
 ---
 title: dappsys/ds-proxy
 layout: default
-id: ds-proxy
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
+
+{% capture docs %}{% include git/dappsys/ds-proxy/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-proxy/src/proxy.sol %}

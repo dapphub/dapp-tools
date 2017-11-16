@@ -1,19 +1,12 @@
 ---
 title: dappsys/ds-thing
 layout: default
-id: ds-thing
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-<p>
-  DSThing simply inherits from
-  <a href={{ "dappsys/ds-auth.html" | relative_url }}>DSAuth</a>,
-  <a href={{ "dappsys/ds-math.html" | relative_url }}>DSMath</a> and
-  <a href={{ "dappsys/ds-note.html" | relative_url }}>DSNote</a> for 3-in-1
-  convenience. An alias type for blockchain 'things' that use math, log events,
-  and have a concept of ownership
-</p>
+{% capture docs %}{% include git/dappsys/ds-thing/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-thing/src/thing.sol %}

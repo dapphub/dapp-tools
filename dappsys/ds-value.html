@@ -1,32 +1,12 @@
 ---
 title: dappsys/ds-value
 layout: default
-id: ds-value
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-<p>
-  Authorized users can set and unset a value. Anyone can read the value.
-</p>
-
-<h3>Actions</h3>
-<dl class="row">
-  <dt class="col-sm-3"><code>peek</code></dt>
-  <dd class="col-sm-9">
-    return the value along with boolean <code>true</code> if the value is
-    set and <code>false</code> if not.
-  </dd>
-
-  <dt class="col-sm-3"><code>read</code></dt>
-  <dd class="col-sm-9">return either the value or an exception if not set</dd>
-
-  <dt class="col-sm-3"><code>poke</code></dt>
-  <dd class="col-sm-9">set the value (requires auth)</dd>
-
-  <dt class="col-sm-3"><code>void</code></dt>
-  <dd class="col-sm-9">unset the value (requires auth)</dd>
-</dl>
+{% capture docs %}{% include git/dappsys/ds-value/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-value/src/value.sol %}

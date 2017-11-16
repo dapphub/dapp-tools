@@ -1,51 +1,12 @@
 ---
 title: dappsys/ds-vault
 layout: default
-id: ds-vault
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-<p>
-  A vault is useful any time you need to segregate token holdings into
-  several distinct buckets, or when you want to set up a shared account,
-  perhaps owned by a
-  <a href={{ "dappsys/ds-multisig.html" | relative_url }}>ds-multisig</a>.
-</p>
-
-<p>
-  A <code>DSMultiVault</code> is able to hold any number of different ERC20
-  tokens.
-</p>
-
-<p>
-  A <code>DSVault</code> is bound to a single token. It is useful as a handle on
-  the token that the system can pass around without also needing to
-  transfer the tokens themselves, or passing a Multivault/Token pair.
-</p>
-
-<p>
-  Vaults are protected by <a href={{ "dappsys/ds-auth.html" | relative_url }}>ds-auth</a>
-  which means they support sophisticated access control out of the box.
-</p>
-
-<p>
-  Whoever owns or controls a <code>DSVault</code> can tell it to perform token
-  operations, such as transferring X amount of token Y to account Z, or even
-  (provided the vault has the necessary approval) transferring X amount of token
-  Y from account W to account Z.
-</p>
-
-<p>
-  Anyone is free to make deposits to a vault by simply transferring tokens directly
-  into it using the a transfer function. The owner of a vault can also ask the
-  vault to perform the transfer.
-</p>
-
-<p>
-  Vaults are very staightforward to understand and think about, and can
-  be a useful building block in many different kinds of applications.
-</p>
+{% capture docs %}{% include git/dappsys/ds-vault/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-vault/src/vault.sol %}

@@ -1,60 +1,12 @@
 ---
 title: dappsys/ds-token
 layout: default
-id: ds-token
 ---
 
-{% include dappsys/nav.html %}
+{% include dappsys/common.html %}
 
-<p>
-   Provides a standard <a href="https://theethereum.wiki/w/index.php/ERC20_Token_Standard">ERC20</a>
-   token interface plus DSAuth-protected <code>mint</code> and <code>burn</code>
-   functions; <code>trust</code> binary approval; as well as  <code>push</code>,
-   <code>pull</code> and <code>move</code> aliases for <code>transferFrom</code>
-   operations.
-</p>
-
-<h3>Custom Actions</h3>
-<dl class="row">
-  <dt class="col-sm-3"><code>trust</code></dt>
-  <dd class="col-sm-9">
-    similar to <code>approve</code> but with a boolean argument for permitting
-    or forbidding transfers of any amount by a third party (requires auth)</dd>
-
-  <dt class="col-sm-3"><code>mint</code></dt>
-  <dd class="col-sm-8">
-    credit tokens at an address whilst simultaniously increasing
-    <code>totalSupply</code> (requires auth)
-  </dd>
-
-  <dt class="col-sm-3"><code>burn</code></dt>
-  <dd class="col-sm-8">
-    debit tokens at an address whilst simultaniously decreasing
-    <code>totalSupply</code> (requires auth)
-  </dd>
-</dl>
-
-<h3>Aliases</h3>
-<dl class="row">
-  <dt class="col-sm-3"><code>push</code></dt>
-  <dd class="col-sm-9">
-    transfer an amount from <code>msg.sender</code> to a given address (requires
-    trust or approval)
-  </dd>
-
-  <dt class="col-sm-3"><code>pull</code></dt>
-  <dd class="col-sm-9">
-    transfer an amount from a given address to <code>msg.sender</code> (requires
-    trust or approval)
-  </dd>
-
-  <dt class="col-sm-3"><code>move</code></dt>
-  <dd class="col-sm-9">
-    transfer an amount from a given <code>src</code> address to a given
-    <code>dst</code> address (requires
-    trust or approval)
-  </dd>
-</dl>
+{% capture docs %}{% include git/dappsys/ds-token/README.md %}{% endcapture %}
+{{ docs | markdownify }}
 
 {% highlight js %}
   {% include git/dappsys/ds-token/src/token.sol %}

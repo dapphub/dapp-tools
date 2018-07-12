@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# Based on the Nix install script
+# This script installs Nix, Cachix and Dapptools
+
+{ # Prevent execution if this script was only partially downloaded
+
+    set -e
+
+    if [ "$(id -u)" -eq 0 ]; then
+        echo 'error: please run this script as a regular user'
+        exit 1
+    fi
+
+    if [ "$(uname -s)" = Darwin ]; then
+        echo 'error: will only work on Linux'
+        exit 1
+    fi
+
+    curl https://nixos.org/nix/install | sh
+
+    # shellcheck source=/dev/null
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+    nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
+
+    cachix use dapp
+
+    git clone https://github.com/dapphub/dapptools --recursive
+
+    cd dapptools || {
+        echo "error: could not download dapptools!"
+        exit 1
+    }
+
+    nix-env -f . -iA dapp seth hevm ethsign
+
+    cat >&2 <<EOF
+
+Installation finished!  To ensure that the necessary environment
+variables are set, either log in again, or type
+
+  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+in your shell.
+EOF
+
+} # End of wrapping
+

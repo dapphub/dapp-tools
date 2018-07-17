@@ -25,6 +25,7 @@
   fi
 
   have() { command -v "$1" >/dev/null; }
+
   { have nix; } || {
     echo "Installing Nix..."
     curl -sS https://nixos.org/nix/install | sh
@@ -36,7 +37,7 @@
   echo "Installing Cachix..."
   nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
   
-  echo "Use dapp cache"
+  echo "Use dapp cache..."
   cachix use dapp
   
   dest="$HOME/.dapp/"
@@ -45,17 +46,16 @@
     echo "Downloading dapptools..."
     mkdir -p "$dest"
     cd "$dest"
-    git clone https://github.com/dapphub/dapptools --recursive
+    git clone https://github.com/dapphub/dapptools --recursive --quiet
   fi
 
   cd "$dest/dapptools" || {
-    echo "error: could not download dapptools!"
-    exit 1
+    oops "could not download dapptools!"
   }
 
-  git pull
+  git pull --quiet
 
-  nix-env -f . -iA dapp seth hevm ethsign
+  nix-env -Q -f . -iA dapp seth hevm ethsign
 
   cat >&2 <<EOF
 

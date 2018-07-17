@@ -41,16 +41,19 @@
   
   dest="$HOME/.dapp/"
 
-  mkdir -p "$dest"
+  if [ ! -d "$dest/dapptools" ]; then
+    echo "Downloading dapptools..."
+    mkdir -p "$dest"
+    cd "$dest"
+    git clone https://github.com/dapphub/dapptools --recursive
+  fi
 
-  cd "$dest"
-
-  git clone https://github.com/dapphub/dapptools --recursive
-
-  cd dapptools || {
+  cd "$dest/dapptools" || {
     echo "error: could not download dapptools!"
     exit 1
   }
+
+  git pull
 
   nix-env -f . -iA dapp seth hevm ethsign
 

@@ -52,6 +52,16 @@ ol li { margin-bottom: 0; }
   padding-left: 4.2rem;
 }
 
+pre > b {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 @font-face {
   font-family: 'Fantasque Sans Mono';
   src: url('/fonts/FantasqueSansMono-Regular.eot'); /* IE 9 Compatibility Mode */

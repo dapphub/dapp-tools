@@ -5,37 +5,57 @@
 
 { # Prevent execution if this script was only partially downloaded
 
-    set -e
+  set -e
 
-    if [ "$(id -u)" -eq 0 ]; then
-        echo 'error: please run this script as a regular user'
-        exit 1
-    fi
+  oops() {
+    echo >&2 "${0##*/}: error:" "$@"
+    exit 1
+  }
 
-    if [ "$(uname -s)" = Darwin ]; then
-        echo 'error: will only work on Linux'
-        exit 1
-    fi
+  if [ "$(id -u)" -eq 0 ]; then
+    oops 'please run this script as a regular user'
+  fi
 
-    curl https://nixos.org/nix/install | sh
+  if [ "$(uname -s)" = Darwin ]; then
+    oops 'this script only works on Linux (for now)'
+  fi
+
+  if [ -z "$HOME" ]; then
+    oops "\$HOME is not set"
+  fi
+
+  have() { command -v "$1" >/dev/null; }
+  { have nix; } || {
+    echo "Installing Nix..."
+    curl -sS https://nixos.org/nix/install | sh
 
     # shellcheck source=/dev/null
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  }
 
-    nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
+  echo "Installing Cachix..."
+  nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
+  
+  echo "Use dapp cache"
+  cachix use dapp
+  
+  dest="$HOME/.dapp/"
 
-    cachix use dapp
+  mkdir -p "$dest"
 
-    git clone https://github.com/dapphub/dapptools --recursive
+  cd "$dest"
 
-    cd dapptools || {
-        echo "error: could not download dapptools!"
-        exit 1
-    }
+  git clone https://github.com/dapphub/dapptools --recursive
 
-    nix-env -f . -iA dapp seth hevm ethsign
+  cd dapptools || {
+    echo "error: could not download dapptools!"
+    exit 1
+  }
 
-    cat >&2 <<EOF
+  programs="dapp seth hevm ethsign"
+  nix-env -f . -iA "$programs"
+
+  cat >&2 <<EOF
 
 Installation finished!  To ensure that the necessary environment
 variables are set, either log in again, or type
@@ -43,7 +63,8 @@ variables are set, either log in again, or type
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
 in your shell.
+
+You now have access to $programs
 EOF
 
 } # End of wrapping
-

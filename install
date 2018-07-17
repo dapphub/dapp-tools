@@ -52,8 +52,7 @@
     exit 1
   }
 
-  programs="dapp seth hevm ethsign"
-  nix-env -f . -iA "$programs"
+  nix-env -f . -iA dapp seth hevm ethsign
 
   cat >&2 <<EOF
 
@@ -64,7 +63,7 @@ variables are set, either log in again, or type
 
 in your shell.
 
-You now have access to $programs
+You now have access to dapp seth hevm ethsign
 EOF
 
 } # End of wrapping

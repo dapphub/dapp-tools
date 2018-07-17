@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>nxs-rocket</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="0%" cy="0%" fx="0%" fy="0%" r="143.544416%" id="radialGradient-1">
+            <stop stop-color="#725AC1" offset="0%"></stop>
+            <stop stop-color="#1E1639" offset="100%"></stop>
+        </radialGradient>
+        <rect id="path-2" x="17" y="16" width="224" height="224" rx="14"></rect>
+        <mask id="mask-3" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="224" height="224" fill="white">
+            <use xlink:href="#path-2"></use>
+        </mask>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="rocket.chat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="nxs-rocket">
+            <use id="Rectangle-4" stroke="#0A122A" mask="url(#mask-3)" stroke-width="8" fill="url(#radialGradient-1)" xlink:href="#path-2"></use>
+            <g id="Group" filter="url(#filter-4)" transform="translate(67.000000, 76.000000)">
+                <g id="Group-2-Copy-4">
+                    <rect id="Rectangle-2-Copy-16" fill="#807AB6" x="0" y="31.8644067" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-17" fill="#FFFFFF" x="15.6962025" y="47.7966102" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-18" fill="#FFFFFF" x="0" y="63.7288136" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-19" fill="#8D86C9" x="15.6962025" y="79.6610169" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-20" fill="#FFFFFF" x="31.3924051" y="79.6610169" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-21" fill="#FFFFFF" x="47.0886076" y="63.7288136" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-22" fill="#C5BFF6" x="62.78481" y="47.7966102" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-23" fill="#FFFFFF" x="78.4810127" y="31.8644067" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-24" fill="#8D86C9" x="78.4810127" y="63.7288136" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-25" fill="#FFFFFF" x="78.4810127" y="79.6610169" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-26" fill="#FFFFFF" x="109.873418" y="79.6610169" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-27" fill="#FFFFFF" x="109.873418" y="47.7966102" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-28" fill="#807AB6" x="109.873418" y="15.9322034" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-30" fill="#FFFFFF" x="94.1772152" y="31.8644067" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-29" fill="#FFFFFF" x="109.873418" y="0" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-31" fill="#FFFFFF" x="78.4810127" y="0" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-32" fill="#807AB6" x="31.3924051" y="0" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                    <rect id="Rectangle-2-Copy-33" fill="#FFFFFF" x="47.0886076" y="15.9322034" width="14.1265823" height="14.3389831" rx="3.18303476"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

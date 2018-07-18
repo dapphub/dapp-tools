@@ -23,9 +23,6 @@
 <b>$ </b>. "$HOME/.nix-profile/etc/profile.d/nix.sh"
 <b>$ </b>nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
 <b>$ </b>cachix use dapp
-<b>$ </b>nix-env -iA dapphub.{<!--
-  --><a href=https://github.com/dapphub/dapp>dapp</a>,<!--
-  --><a href=https://github.com/dapphub/seth>seth</a>,<!--
-  --><a href=https://github.com/dapphub/hevm>hevm</a>,<!--
-  --><a href=https://github.com/arachnid/evmdis>evmdis</a>}
+<b>$ </b>git clone --recursive https://github.com/dapphub/dapptools $HOME/.dapp/dapptools
+<b>$ </b>nix-env -f $HOME/.dapp/dapptools -iA dapp seth solc hevm ethsign
 </pre>

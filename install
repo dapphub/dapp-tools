@@ -6,7 +6,7 @@
 { # Prevent execution if this script was only partially downloaded
 
   set -e
-
+  
   oops() {
     echo >&2 "${0##*/}: error:" "$@"
     exit 1
@@ -25,6 +25,13 @@
   fi
 
   have() { command -v "$1" >/dev/null; }
+
+  { have nixos-version; } && {
+    echo "We love that you are running NixOS! <3"
+    echo "We're working on having this script work on NixOS, but for the moment"
+    echo "go to https://dapphub.chat/channel/dev for instructions."
+    exit 1
+  }
 
   { have nix; } || {
     echo "Installing Nix..."
@@ -58,7 +65,7 @@
 
   git pull --quiet
 
-  nix-env -Q -f . -iA dapp seth hevm ethsign
+  nix-env -Q -f . -iA dapp seth solc hevm ethsign
 
   cat >&2 <<EOF
 

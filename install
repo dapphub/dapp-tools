@@ -16,10 +16,6 @@
     oops 'please run this script as a regular user'
   fi
 
-  if [ "$(uname -s)" = Darwin ]; then
-    oops 'this script only works on Linux (for now)'
-  fi
-
   if [ -z "$HOME" ]; then
     oops "\$HOME is not set"
   fi
@@ -40,6 +36,15 @@
     # shellcheck source=/dev/null
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
   }
+
+  if [ "$(uname -s)" = Darwin ];  then
+    { grep "trusted-users = root $USER" /etc/nix/nix.conf; } || {
+      echo "Adding $USER as a trusted Nix user..."
+      echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf
+      sudo launchctl stop org.nixos.nix-daemon
+      sudo launchctl start org.nixos.nix-daemon
+    }
+  fi
 
   { have cachix; } || {
     echo "Installing Cachix..."

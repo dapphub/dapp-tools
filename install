@@ -34,11 +34,14 @@
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
   }
 
-  echo "Installing Cachix..."
-  nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
+  { have cachix; } || {
+    echo "Installing Cachix..."
+    nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
+  }
+
   
   echo "Use dapp cache..."
-  cachix use dapp
+  cachix use dapp 2>/dev/null
   
   dest="$HOME/.dapp/"
 
@@ -66,7 +69,7 @@ variables are set, either log in again, or type
 
 in your shell.
 
-You now have access to dapp seth hevm ethsign
+You now have access to dapp, seth, hevm and ethsign.
 EOF
 
 } # End of wrapping

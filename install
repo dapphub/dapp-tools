@@ -68,6 +68,7 @@
     oops "could not download dapptools!"
   }
 
+  git submodule update --init --remote --quiet
   git pull --quiet
 
   nix-env -Q -f . -iA dapp seth solc hevm ethsign

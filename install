@@ -23,38 +23,61 @@
   have() { command -v "$1" >/dev/null; }
 
   { have nixos-version; } && {
+    os="NixOS"
     echo "We love that you are running NixOS! <3"
     echo "We're working on having this script work on NixOS, but for the moment"
     echo "go to https://dapphub.chat/channel/dev for instructions."
     exit 1
   }
 
-  { have nix; } || {
-    echo "Installing Nix..."
-    curl -sS https://nixos.org/nix/install | sh
+  { have git; } || oops 'you need to install Git before running this script'
 
+  os=$(uname -s)
+
+  { have nix; } || {
+    echo "Dapptools uses the Nix package manager to install programs behind the scenes."
+    echo "Installing Nix now, this will take a few minutes."
+    echo "You may be asked for your sudo password."
+    # echo "Press any key to install Nix (you may be asked for sudo password)"
+
+    curl -sS https://nixos.org/nix/install | sh >/dev/null 2>/dev/null
+
+    if [ "$os" = Darwin ]; then
+      { grep "trusted-users = root $USER" /etc/nix/nix.conf; } || {
+        echo "Adding $USER as a trusted Nix user..."
+        echo "You may need to provide your sudo password"
+        echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf
+      }
+      p="/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+    else
+      p="$HOME/.nix-profile/etc/profile.d/nix.sh"
+    fi
     # shellcheck source=/dev/null
-    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    . "$p"
+    echo "Nix installation succeded!"
   }
 
-  if [ "$(uname -s)" = Darwin ];  then
-    { grep "trusted-users = root $USER" /etc/nix/nix.conf; } || {
-      echo "Adding $USER as a trusted Nix user..."
-      echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf
-      sudo launchctl stop org.nixos.nix-daemon
-      sudo launchctl start org.nixos.nix-daemon
-    }
+  # Add Cachix caches to nix.conf
+
+
+  
+  echo "Adding Cachix binary cache to Nix"
+
+
+  if [ "$os" = Darwin ];  then
+    echo "# added by Dapptools installer" | sudo tee -a /etc/nix/nix.conf
+    echo "substituters = https://cache.nixos.org https://dapp.cachix.org" | sudo tee -a /etc/nix/nix.conf
+    echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=" | sudo tee -a /etc/nix/nix.conf
+    echo "Relaunching nix-daemon"
+    sudo launchctl kickstart -k system/org.nixos.nix-daemon
+  else
+    mkdir -p "$HOME/.config/nix"
+    dest="$HOME/.config/nix/nix.conf"
+    echo "# added by Dapptools installer" | tee -a "$dest"
+    echo "substituters = https://cache.nixos.org https://dapp.cachix.org" | tee -a "$dest"
+    echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=" | tee -a "$dest"
   fi
 
-  { have cachix; } || {
-    echo "Installing Cachix..."
-    nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
-  }
-
-  
-  echo "Use dapp cache..."
-  cachix use dapp 2>/dev/null
-  
   dest="$HOME/.dapp/"
 
   if [ ! -d "$dest/dapptools" ]; then
@@ -71,18 +94,32 @@
   git submodule update --init --remote --quiet
   git pull --quiet
 
-  nix-env -Q -f . -iA dapp seth solc hevm ethsign
+  echo "Installing dapptools..."
+  nix-env -Q -f . -iA dapp seth solc hevm ethsign >/dev/null 2>/dev/null
 
-  cat >&2 <<EOF
+  # Finished!
+  if [ "$os" = Darwin ];  then
+    cat >&2 <<EOF
 
-Installation finished!  To ensure that the necessary environment
-variables are set, either log in again, or type
+Installation finished!
 
-  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+You now have access to dapp, seth, solc, hevm and ethsign.
 
-in your shell.
-
-You now have access to dapp, seth, hevm and ethsign.
+Please open a new terminal to start using dapptools!
 EOF
+  else
+    cat >&2 <<EOF
+
+Installation finished!
+
+You now have access to dapp, seth, solc, hevm and ethsign.
+
+Please logout and log back in to start using dapptools, or run
+
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+in this terminal.
+EOF
+  fi
 
 } # End of wrapping

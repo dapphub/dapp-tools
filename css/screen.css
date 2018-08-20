@@ -27,7 +27,6 @@ nav.top { background: #6660a0; }
 pre, code { font-family: "Fantasque Sans Mono"; }
 pre { padding: 0.5rem 0.75rem; }
 pre { margin: 1rem 0;}
-pre { overflow-x: hidden; }
 pre.small, .highlight, pre code { font-size: 0.85rem; }
 .dark pre { border-width: 0; }
 pre { background: #6660a0; color: ivory }

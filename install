@@ -40,7 +40,7 @@
     echo "You may be asked for your sudo password."
     # echo "Press any key to install Nix (you may be asked for sudo password)"
 
-    curl -sS https://nixos.org/nix/install | sh >/dev/null 2>/dev/null
+    curl -sS https://nixos.org/nix/install | sh
 
     if [ "$os" = Darwin ]; then
       { grep "trusted-users = root $USER" /etc/nix/nix.conf; } || {

@@ -1,7 +1,7 @@
 os:
   - linux
   - osx
-language: nix
+language: minimal
 sudo: required
 script:
   sh install

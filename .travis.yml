@@ -1,0 +1,7 @@
+os:
+  - linux
+  - osx
+language: nix
+sudo: required
+script:
+  sh install

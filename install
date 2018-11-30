@@ -47,8 +47,7 @@
 
   { have nix; } || {
     echo "Dapptools uses the Nix package manager to install programs behind the scenes."
-    echo "Installing Nix now, this will take a few minutes."
-    echo "You may be asked for your sudo password."
+    echo "Installing Nix in single-user mode, you may be asked for your sudo password."
 
     curl -sS https://nixos.org/nix/install | sh
 

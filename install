@@ -20,71 +20,65 @@
     oops "\$HOME is not set"
   fi
 
+  if [ -z "$USER" ]; then
+    oops "\$USER is not set"
+  fi
+
   have() { command -v "$1" >/dev/null; }
 
+  # We don't handle NixOS yet
   { have nixos-version; } && {
     os="NixOS"
-    echo "We love that you are running NixOS! <3"
-    echo "We're working on having this script work on NixOS, but for the moment"
-    echo "go to https://dapphub.chat/channel/dev for instructions."
+    echo >&2 "We love that you are running NixOS! <3"
+    echo >&2 "We're working on having this script work on NixOS, but for the moment"
+    echo >&2 "go to https://dapp.tools and follow manual installation instructions."
     exit 1
   }
 
+  # Don't auto update Nix v1.
+  { have nix-shell && ! have nix; } && {
+    echo >&2 "You seem to be running a Nix version lower than 2.0"
+    echo >&2 "Please upgrade to Nix v2 before running this script"
+    echo >&2 "You can run \`curl -sS https://nixos.org/nix/install | sh\`"
+  }
+
   { have git; } || oops 'you need to install Git before running this script'
+  { have curl; } || oops 'you need to install curl before running this script'
 
   os=$(uname -s)
 
   { have nix; } || {
-    echo "Dapptools uses the Nix package manager to install programs behind the scenes."
-    echo "Installing Nix now, this will take a few minutes."
-    echo "You may be asked for your sudo password."
-    # echo "Press any key to install Nix (you may be asked for sudo password)"
+    echo >&2 "Dapptools uses the Nix package manager to install programs behind the scenes."
+    echo >&2 "Installing Nix now, this will take a few minutes."
+    echo >&2 "You may be asked for your sudo password."
 
     curl -sS https://nixos.org/nix/install | sh
 
-    if [ "$os" = Darwin ]; then
-      { grep "trusted-users = root $USER" /etc/nix/nix.conf; } || {
-        echo "Adding $USER as a trusted Nix user..."
-        echo "You may need to provide your sudo password"
-        echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf
-      }
-      p="/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
-    else
-      p="$HOME/.nix-profile/etc/profile.d/nix.sh"
-    fi
     # shellcheck source=/dev/null
-    . "$p"
-    echo "Nix installation succeded!"
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    echo >&2 "Nix installation succeded!"
   }
 
-  # Add Cachix caches to nix.conf
+  echo >&2 "Adding Cachix binary cache to Nix"
 
-
-  
-  echo "Adding Cachix binary cache to Nix"
-
-
-  if [ "$os" = Darwin ];  then
-    echo "# added by Dapptools installer" | sudo tee -a /etc/nix/nix.conf
-    echo "substituters = https://cache.nixos.org https://dapp.cachix.org" | sudo tee -a /etc/nix/nix.conf
-    echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=" | sudo tee -a /etc/nix/nix.conf
-    echo "Relaunching nix-daemon"
-    sudo launchctl kickstart -k system/org.nixos.nix-daemon
-  else
+  if [ ! -d "$HOME/.config/nix" ]; then
     mkdir -p "$HOME/.config/nix"
-    dest="$HOME/.config/nix/nix.conf"
-    echo "# added by Dapptools installer" | tee -a "$dest"
-    echo "substituters = https://cache.nixos.org https://dapp.cachix.org" | tee -a "$dest"
-    echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=" | tee -a "$dest"
   fi
+
+  {
+    echo "# added by Dapptools installer"
+    echo "substituters = https://cache.nixos.org https://dapp.cachix.org"
+    echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs="
+  }  >> "$HOME/.config/nix/nix.conf"
 
   dest="$HOME/.dapp/"
 
   if [ ! -d "$dest/dapptools" ]; then
-    echo "Downloading dapptools..."
+    echo >&2 "Downloading dapptools..."
     mkdir -p "$dest"
     cd "$dest"
     git clone https://github.com/dapphub/dapptools --recursive --quiet
+    echo >&2 "Done."
   fi
 
   cd "$dest/dapptools" || {
@@ -94,21 +88,11 @@
   git submodule update --init --remote --quiet
   git pull --quiet
 
-  echo "Installing dapptools..."
-  nix-env -Q -f . -iA dapp seth solc hevm ethsign >/dev/null 2>/dev/null
+  echo >&2 "Installing dapptools... (this will take a while)"
+  nix-env -f . -iA dapp seth solc hevm ethsign
 
   # Finished!
-  if [ "$os" = Darwin ];  then
-    cat >&2 <<EOF
-
-Installation finished!
-
-You now have access to dapp, seth, solc, hevm and ethsign.
-
-Please open a new terminal to start using dapptools!
-EOF
-  else
-    cat >&2 <<EOF
+  cat >&2 <<EOF
 
 Installation finished!
 
@@ -120,6 +104,5 @@ Please logout and log back in to start using dapptools, or run
 
 in this terminal.
 EOF
-  fi
 
 } # End of wrapping

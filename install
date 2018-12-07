@@ -56,17 +56,18 @@
     echo "Nix installation succeded!"
   }
 
-  echo "Adding Cachix binary cache to Nix"
-
   if [ ! -d "$HOME/.config/nix" ]; then
     mkdir -p "$HOME/.config/nix"
   fi
 
-  {
-    echo "# added by Dapptools installer"
-    echo "substituters = https://cache.nixos.org https://dapp.cachix.org"
-    echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs="
-  }  >> "$HOME/.config/nix/nix.conf"
+  if ! grep -q -F '# added by Dapptools installer' "$HOME/.config/nix/nix.conf"; then
+    echo "Adding Cachix binary cache to Nix"
+    cat <<EOF > "$HOME/.config/nix/nix.conf"
+# added by Dapptools installer
+substituters = https://cache.nixos.org https://dapp.cachix.org
+trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=
+EOF
+  fi
 
   dest="$HOME/.dapp/"
 

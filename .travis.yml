@@ -3,7 +3,8 @@ os:
   - osx
 language: minimal
 sudo: required
-install:
+install: |
   curl -sS https://nixos.org/nix/install | sh
+  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 script:
   sh install

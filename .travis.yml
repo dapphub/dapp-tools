@@ -3,5 +3,7 @@ os:
   - osx
 language: minimal
 sudo: required
+install:
+  curl -sS https://nixos.org/nix/install | sh
 script:
   sh install

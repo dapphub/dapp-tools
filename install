@@ -34,27 +34,14 @@
     exit 1
   }
 
-  # Don't auto update Nix v1.
-  { have nix-shell && ! have nix; } && {
-    echo >&2 "You seem to be running a Nix version lower than 2.0"
-    echo >&2 "Please upgrade to Nix v2 before running this script"
+  # We need Nix v2
+  { have nix; } || {
+    echo >&2 "Please install Nix v2 before running this script"
     echo >&2 "You can run \`curl -sS https://nixos.org/nix/install | sh\`"
     exit 1
   }
 
   { have git; } || oops "you need to install Git before running this script"
-  { have curl; } || oops "you need to install curl before running this script"
-
-  { have nix; } || {
-    echo "Dapptools uses the Nix package manager to install programs behind the scenes."
-    echo "Installing Nix in single-user mode, you may be asked for your sudo password."
-
-    curl -sS https://nixos.org/nix/install | sh
-
-    # shellcheck source=/dev/null
-    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-    echo "Nix installation succeded!"
-  }
 
   if [ ! -d "$HOME/.config/nix" ]; then
     mkdir -p "$HOME/.config/nix"
@@ -95,12 +82,6 @@ EOF
 Installation finished!
 
 You now have access to dapp, seth, solc, hevm and ethsign.
-
-Please logout and log back in to start using dapptools, or run
-
-    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
-in this terminal.
 EOF
 
 } # End of wrapping

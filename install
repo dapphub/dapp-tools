@@ -38,7 +38,7 @@
   { have nix-shell && ! have nix; } && {
     echo >&2 "You seem to be running a Nix version lower than 2.0"
     echo >&2 "Please upgrade to Nix v2 before running this script"
-    echo >&2 "You can run \`curl -sS https://nixos.org/nix/install | sh\`"
+    echo >&2 "You can run \`curl -sSL https://nixos.org/nix/install | sh\`"
     exit 1
   }
 
@@ -49,7 +49,7 @@
     echo "Dapptools uses the Nix package manager to install programs behind the scenes."
     echo "Installing Nix in single-user mode, you may be asked for your sudo password."
 
-    curl -sS https://nixos.org/nix/install | sh
+    curl -sSL https://nixos.org/nix/install | sh
 
     # shellcheck source=/dev/null
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"

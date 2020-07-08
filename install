@@ -20,7 +20,7 @@
   [[ $URL == null ]] && oops "Could not fetch latest release, please file an issue at https://github.com/dapphub/dapp-tools/issues/new"
 
   cachix use dapp
-  nix-env -iA dapp hevm seth -f "$URL"
+  nix-env -iA dapp hevm seth solc -f "$URL"
 
   echo -e "${GREEN}All set!${NC}"
 } # End of wrapping

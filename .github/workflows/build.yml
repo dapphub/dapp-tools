@@ -4,7 +4,10 @@ on:
   push:
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@63cf434de4e4292c6960639d56c5dd550e789d77

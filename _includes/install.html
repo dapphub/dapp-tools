@@ -1,6 +1,8 @@
 <p class="lead">Setting up the DappHub toolkit</p>
 <p>
-  If you are running GNU/Linux or macOS you can take advantage of our all in one installer.
+  Dapptools requires Nix, so make sure you have it <a href="https://nixos.org/download.html">installed</a> first.
+
+  After that, you can take advantage of our one-line installer.
 </p>
 
 <pre>
@@ -8,7 +10,7 @@
 </pre>
 
 <p>
-  This script downloads the Nix package manager, setups binary cache with Cachix and installs our most used tools.
+  This script downloads the latest version of dapptools, sets up a binary cache using <a href="https://cachix.org">Cachix</a> and installs our most used tools.
 </p>
 
 <p class="lead">Manual installation</p>
@@ -19,10 +21,7 @@
 </p>
 
 <pre>
-<b>$ </b>curl https://nixos.org/nix/install | sh
+<b>$ </b>curl -L https://nixos.org/nix/install | sh
 <b>$ </b>. "$HOME/.nix-profile/etc/profile.d/nix.sh"
-<b>$ </b>nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
-<b>$ </b>cachix use dapp
-<b>$ </b>git clone --recursive https://github.com/dapphub/dapptools $HOME/.dapp/dapptools
-<b>$ </b>nix-env -f $HOME/.dapp/dapptools -iA dapp seth solc hevm ethsign
+<b>$ </b>nix-env -iA dapp hevm seth solc -if https://github.com/dapphub/dapptools/tarball/master --substituters https://dapp.cachix.org --trusted-public-keys dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=
 </pre>

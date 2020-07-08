@@ -24,3 +24,5 @@
 
   echo -e "${GREEN}All set!${NC}"
 } # End of wrapping
+
+# vim: set ft=sh:

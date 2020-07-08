@@ -1,7 +1,0 @@
-os:
-  - linux
-  - osx
-language: minimal
-sudo: required
-script:
-  sh install

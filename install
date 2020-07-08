@@ -1,106 +1,21 @@
-#!/bin/sh
-
-# Based on the Nix install script
-# This script installs Nix, Cachix and Dapptools
+#!/usr/bin/env nix-shell
+#! nix-shell -i bash -p cachix curl jq
 
 { # Prevent execution if this script was only partially downloaded
-
   set -e
-  
+
   oops() {
-    echo >&2 "${0##*/}: error:" "$@"
+    >&2 echo "error:" "$1"
     exit 1
   }
 
-  if [ "$(id -u)" -eq 0 ]; then
-    oops "please run this script as a regular user"
-  fi
+  [[ "$(id -u)" -eq 0 ]] && oops "Please run this script as a regular user"
 
-  if [ -z "$HOME" ]; then
-    oops "\$HOME is not set"
-  fi
+  URL=$(curl -sS https://api.github.com/repos/dapphub/dapptools/releases/latest | jq -r .tarball_url)
 
-  if [ -z "$USER" ]; then
-    oops "\$USER is not set"
-  fi
+  [[ $URL == null ]] && oops "Could not fetch latest release, please file an issue at https://github.com/dapphub/dapp-tools/issues/new"
 
-  have() { command -v "$1" >/dev/null; }
-
-  # We don't handle NixOS yet
-  { have nixos-version; } && {
-    echo >&2 "We love that you are running NixOS! <3"
-    echo >&2 "We're working on having this script work on NixOS, but for the moment"
-    echo >&2 "go to https://dapp.tools and follow manual installation instructions."
-    exit 1
-  }
-
-  # Don't auto update Nix v1.
-  { have nix-shell && ! have nix; } && {
-    echo >&2 "You seem to be running a Nix version lower than 2.0"
-    echo >&2 "Please upgrade to Nix v2 before running this script"
-    echo >&2 "You can run \`curl -sS https://nixos.org/nix/install | sh\`"
-    exit 1
-  }
-
-  { have git; } || oops "you need to install Git before running this script"
-  { have curl; } || oops "you need to install curl before running this script"
-
-  { have nix; } || {
-    echo "Dapptools uses the Nix package manager to install programs behind the scenes."
-    echo "Installing Nix in single-user mode, you may be asked for your sudo password."
-
-    curl -sS https://nixos.org/nix/install | sh
-
-    # shellcheck source=/dev/null
-    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-    echo "Nix installation succeded!"
-  }
-
-  if [ ! -d "$HOME/.config/nix" ]; then
-    mkdir -p "$HOME/.config/nix"
-  fi
-
-  if ! grep -q -F '# added by Dapptools installer' "$HOME/.config/nix/nix.conf"; then
-    echo "Adding Cachix binary cache to Nix"
-    cat <<EOF > "$HOME/.config/nix/nix.conf"
-# added by Dapptools installer
-substituters = https://cache.nixos.org https://dapp.cachix.org
-trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dapp.cachix.org-1:9GJt9Ja8IQwR7YW/aF0QvCa6OmjGmsKoZIist0dG+Rs=
-EOF
-  fi
-
-  dest="$HOME/.dapp/"
-
-  if [ ! -d "$dest/dapptools" ]; then
-    echo "Downloading dapptools..."
-    mkdir -p "$dest"
-    cd "$dest"
-    git clone https://github.com/dapphub/dapptools --recursive --quiet
-    echo "Done."
-  fi
-
-  cd "$dest/dapptools" || {
-    oops "could not download dapptools!"
-  }
-
-  git submodule update --init --remote --quiet
-  git pull --quiet
-
-  echo "Installing dapptools... (this will take a while)"
-  nix-env -f . -iA dapp seth solc hevm ethsign
-
-  # Finished!
-  cat <<EOF
-
-Installation finished!
-
-You now have access to dapp, seth, solc, hevm and ethsign.
-
-Please logout and log back in to start using dapptools, or run
-
-    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
-in this terminal.
-EOF
+  cachix use dapp
+  nix-env -iA dapp hevm seth -f "$URL"
 
 } # End of wrapping

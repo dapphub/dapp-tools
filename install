@@ -4,8 +4,12 @@
 { # Prevent execution if this script was only partially downloaded
   set -e
 
+  GREEN='\033[0;32m'
+  RED='\033[0;31m'
+  NC='\033[0m'
+
   oops() {
-    >&2 echo "error:" "$1"
+    >&2 echo -e "${RED}error:${NC} $1"
     exit 1
   }
 
@@ -18,4 +22,5 @@
   cachix use dapp
   nix-env -iA dapp hevm seth -f "$URL"
 
+  echo -e "${GREEN}All set!${NC}"
 } # End of wrapping

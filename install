@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -i bash -p cachix curl jq
+#! nix-shell --pure -i bash -p cacert cachix curl git jq nix
 
 { # Prevent execution if this script was only partially downloaded
   set -e

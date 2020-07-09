@@ -4,10 +4,9 @@ on:
   push:
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, macos-latest ]
-    runs-on: ${{ matrix.os }}
+    # NOTE: see this issue for why we don't build on macOS
+    # https://github.community/t/api-rate-limit-exceeded-on-actions-setup-go/16237/5
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@63cf434de4e4292c6960639d56c5dd550e789d77

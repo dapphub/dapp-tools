@@ -15,12 +15,13 @@
 
   [[ "$(id -u)" -eq 0 ]] && oops "Please run this script as a regular user"
 
-  URL=$(curl -sS https://api.github.com/repos/dapphub/dapptools/releases/latest | jq -r .tarball_url)
+  API_OUTPUT=$(curl -sS https://api.github.com/repos/dapphub/dapptools/releases/latest)
+  RELEASE=$(echo "$API_OUTPUT" | jq -r .tarball_url)
 
-  [[ $URL == null ]] && oops "Could not fetch latest release, please file an issue at https://github.com/dapphub/dapp-tools/issues/new"
+  [[ $RELEASE == null ]] && oops "No release found in ${API_OUTPUT}"
 
   cachix use dapp
-  nix-env -iA dapp hevm seth solc -f "$URL"
+  nix-env -iA dapp hevm seth solc -f "$RELEASE"
 
   echo -e "${GREEN}All set!${NC}"
 } # End of wrapping

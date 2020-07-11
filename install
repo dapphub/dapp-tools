@@ -1,9 +1,12 @@
-#!/usr/bin/env nix-shell
-#! nix-shell --pure -i bash -p cacert cachix curl git jq nix
+#!/usr/bin/env bash
 
 { # Prevent execution if this script was only partially downloaded
   set -e
 
+  tmpfile=$(mktemp --suffix dapptools)
+  trap 'rm $tmpfile' EXIT
+
+  cat > "$tmpfile" <<<EOF
   GREEN='\033[0;32m'
   RED='\033[0;31m'
   NC='\033[0m'
@@ -24,6 +27,9 @@
   nix-env -iA dapp hevm seth solc -f "$RELEASE"
 
   echo -e "${GREEN}All set!${NC}"
+EOF
+
+  nix-shell --pure -p cacert cachix curl git jq nix --run "bash $tmpfile"
 } # End of wrapping
 
 # vim: set ft=sh:

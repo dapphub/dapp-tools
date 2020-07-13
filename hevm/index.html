@@ -6,11 +6,6 @@ id: hevm
 
 <h1>
   Hevm
-  <small class="text-muted">
-    <a href="https://github.com/dapphub/hevm">
-      <img src="https://img.shields.io/github/tag/dapphub/hevm.svg">
-    </a>
-  </small>
 </h1>
 <p class="lead">
   An EVM for testing and verification, with a nimble debugger that runs in the terminal.
@@ -26,34 +21,61 @@ id: hevm
 
 <pre class="small">
 COMMANDS
+<code>
+hevm -- Ethereum evaluator
 
-<strong>$ hvem dapp-test</strong>            run dappsys unit tests
-<strong>$ hvem interactive</strong>          enter the interactive debugger
+Usage: hevm (exec | dapp-test | interactive | bc-test | compliance | flatten |
+            emacs | version | rlp | abiencode | merkle-test | strip-metadata)
 
-OPTIONS
+Available options:
+  -h,--help                Show this help text
 
---json-file      run against a specific output file
---rpc            fetch external contracts via rpc from the latest block
-</pre>
+Available commands:
+  exec
+  dapp-test
+  interactive
+  bc-test
+  compliance
+  flatten
+  emacs
+  version
+  rlp
+  abiencode
+  merkle-test
+  strip-metadata
+</code>
 
 <h2>About</h2>
 <p>
   The hevm project is an implementation of the Ethereum virtual machine (EVM)
   made specifically for unit testing and debugging smart contracts. It is
   developed by DappHub and integrates especially well with the dapp tool suite.
-  The hevm command line program can run unit tests, interactively debug
-  contracts while showing the Solidity source, or run arbitrary EVM code.
+  The hevm command line program can run unit tests, property tests, interactively debug
+  contracts while showing the Solidity source, or run arbitrary EVM code. State can be fetched
+  from a remote node, or stored locally over several executions.
 </p>
 
 <p>
-  This software is alpha quality. It is not yet a 100% complete EVM (almost
-  everything is implemented, but e.g. the precompiled contracts are missing).
-  Testing against the Ethereum Foundation's reference test suite is begun but
-  not completed. See the hevm v0.10
-  <a href="https://hydra.dapp.tools/build/183/download/1/index.html">test report.</a>
+  hevm is a fully compliant EVM implementation which passes the General State Tests
+  and supports all the Instanbul precompiles.
 </p>
 
-<h2>Usage</h2>
+<h2>Standalone usage</h2>
+<p>
+  hevm can execute arbitrary EVM code by the command <code>hevm exec</code>. For example,
+  to run a simple EVM Quine, try:
+  <code>hevm exec --code 0x647175696e6550383480393834f3 --gas 0xff </code>
+</p>
+
+<p>
+  If given the <code>--rpc</code> flag, state will be fetched from the url provided:
+  <code>hevm exec --rpc https://mainnet.infura.io/v3/$INFURA_API_KEY --address 0x64043a98f097fD6ef0D3ad41588a6B0424723b3a --debug --gas 0xffffff --calldata $(seth calldata "nonces(address)" 0x64043a98f097fD6ef0D3ad41588a6B0424723b3a) </code>
+</p>
+
+<p> For more information, refer to the <a href="https://github.com/dapphub/dapptools/tree/master/src/hevm">hevm README</a>
+</p>
+
+<h2>Usage with dapp tests</h2>
 <p>
   After running <code>dapp build</code>, you can then run <code>hevm dapp-test</code>
   to run a <code>ds-test</code> suite, or <code>hevm interactive</code> to enter the
@@ -72,6 +94,12 @@ OPTIONS
 </p>
 
 <dl class="row">
+  <dt class="col-sm-2"><code>a</code></dt>
+  <dd class="col-sm-10">step to start of execution</dd>
+
+  <dt class="col-sm-2"><code>e</code></dt>
+  <dd class="col-sm-10">step to end of execution</dd>
+
   <dt class="col-sm-2"><code>n</code></dt>
   <dd class="col-sm-10">step forward by one instruction</dd>
 
@@ -89,6 +117,12 @@ OPTIONS
     like <code>N</code> except that it steps over <code>CALL</code> and
     <code>CREATE</code>
   </dd>
+
+  <dt class="col-sm-2"><code>m</code></dt>
+  <dd class="col-sm-10">toggle memory pane</dd>
+
+  <dt class="col-sm-2"><code>Enter</code></dt>
+  <dd class="col-sm-10">display contract overview</dd>
 
   <dt class="col-sm-2"><code>Esc</code></dt>
   <dd class="col-sm-10">exit</dd>

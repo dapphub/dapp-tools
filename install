@@ -3,7 +3,7 @@
 { # Prevent execution if this script was only partially downloaded
   set -e
 
-  tmpfile=$(mktemp --suffix dapptools)
+  tmpfile=$(mktemp)
   trap 'rm $tmpfile' EXIT
 
   cat > "$tmpfile" <<'EOF'

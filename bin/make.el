@@ -19,7 +19,6 @@
   (interactive "sFile to export: \nsFile to save as: ")
   ;; css lives separately
   (setq org-html-htmlize-output-type 'css)
-  (setq org-html-self-link-headlines t)
   (with-current-buffer (find-file-noselect source)
     (org-export-to-file 'html target)))
 

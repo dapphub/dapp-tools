@@ -7,7 +7,7 @@
 #+OPTIONS: e:t email:t f:t inline:t num:t p:nil pri:nil stat:t
 #+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
 #+OPTIONS: num:0 html-postamble:nil title:nil
-#+HTML_HEAD_EXTRA: <style> body { line-height: 1.6; font-size: 18px; padding: 0 10px; margin: 60px auto; max-width: 700px;} h2,h2,h3{line-height:1.2} a:link { color: blue; } a:visited { color: purple; } code, .code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 1.125rem; line-height: 1.6; padding: 0; padding-top: 0; padding-bottom: 0; margin: 0; font-size: 85%; background-color: rgba(0,0,0,0.04); border-radius: 3px; } h2 { font-style: italic; font-size: 18px } </style>
+#+HTML_HEAD_EXTRA: <style> body { line-height: 1.6; font-size: 18px; padding: 0 10px; margin: 60px auto; max-width: 700px;} h2,h2,h3{line-height:1.2} a:link { color: blue; } a:visited { color: blue; } code, .code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 1.125rem; line-height: 1.6; padding: 0; padding-top: 0; padding-bottom: 0; margin: 0; font-size: 85%; background-color: rgba(0,0,0,0.04); border-radius: 3px; } h2 { font-style: italic; font-size: 18px } </style>
 #+DESCRIPTION:
 #+EXCLUDE_TAGS: noexport
 #+KEYWORDS:
@@ -15,7 +15,7 @@
 #+SELECT_TAGS: export
 #+HTML_DOCTYPE: html5
 
-Command line tools and smart contract libraries for Ethereum smart contract deveopment.
+Command line tools and smart contract libraries for Ethereum smart contract development.
 
 Come say hi at [[https://dapphub.chat][~dapphub.chat~]].
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-03-12 Fri 15:44 -->
+<!-- 2021-05-11 Tue 09:06 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>dapp.tools</title>
@@ -37,7 +37,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -49,7 +49,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -192,50 +192,26 @@
 </style>
 <style> body { line-height: 1.6; font-size: 18px; padding: 0 10px; margin: 60px auto; max-width: 700px;} h2,h2,h3{line-height:1.2} a:link { color: blue; } a:visited { color: blue; } code, .code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 1.125rem; line-height: 1.6; padding: 0; padding-top: 0; padding-bottom: 0; margin: 0; font-size: 85%; background-color: rgba(0,0,0,0.04); border-radius: 3px; } h2 { font-style: italic; font-size: 18px } </style>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -247,30 +223,29 @@ for the JavaScript code in this tag.
 </div>
 <div id="content">
 <p>
-Command line tools and smart contract libraries for Ethereum smart contract deveopment.
+Command line tools and smart contract libraries for Ethereum smart contract development.
 </p>
 
 <p>
 Come say hi at <a href="https://dapphub.chat"><code>dapphub.chat</code></a>.
 </p>
 
-<div id="outline-container-org06cf0f1" class="outline-2">
-<h2 id="org06cf0f1">Tooling</h2>
-<div class="outline-text-2" id="text-org06cf0f1">
+<div id="outline-container-orgb49488a" class="outline-2">
+<h2 id="orgb49488a">Tooling</h2>
+<div class="outline-text-2" id="text-orgb49488a">
 <ul class="org-ul">
 <li><a href="https://github.com/dapphub/dapptools/tree/master/src/dapp"><code>dapp</code></a>: smart contract project management</li>
 <li><a href="https://github.com/dapphub/dapptools/tree/master/src/seth#seth"><code>seth</code></a>: command line ethereum client</li>
 <li><a href="https://github.com/dapphub/dapptools/tree/master/src/hevm#hevm"><code>hevm</code></a>: evm debuggger and symbolic execution engine</li>
-<li><a href="https://github.com/dapphub/klab"><code>klab</code></a>: K framework proof explorer &amp; smart contract specification format</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org382ea3b" class="outline-2">
-<h2 id="org382ea3b">Smart Contracts</h2>
-<div class="outline-text-2" id="text-org382ea3b">
+<div id="outline-container-org7282d01" class="outline-2">
+<h2 id="org7282d01">Smart Contracts</h2>
+<div class="outline-text-2" id="text-org7282d01">
 <ul class="org-ul">
-<li><a href="https://github.com/dapphub/ds-test/"><code>ds-test</code></a>: solidity test framework, supports property based testing</li>
+<li><a href="https://github.com/dapphub/ds-test/"><code>ds-test</code></a>: solidity frontend for the hevm testing features</li>
 <li><a href="https://github.com/dapphub/ds-math"><code>ds-math</code></a>: safe math, supports integer and fixed point operations</li>
 <li><a href="https://github.com/dapphub/ds-note"><code>ds-note</code></a>: generic function level logging</li>
 <li><a href="https://github.com/dapphub/ds-token"><code>ds-token</code></a>: flexible ERC20 with <code>mint</code> / <code>burn</code></li>

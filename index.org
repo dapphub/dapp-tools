@@ -24,11 +24,10 @@ Come say hi at [[https://dapphub.chat][~dapphub.chat~]].
 - [[https://github.com/dapphub/dapptools/tree/master/src/dapp][~dapp~]]: smart contract project management
 - [[https://github.com/dapphub/dapptools/tree/master/src/seth#seth][~seth~]]: command line ethereum client
 - [[https://github.com/dapphub/dapptools/tree/master/src/hevm#hevm][~hevm~]]: evm debuggger and symbolic execution engine
-- [[https://github.com/dapphub/klab][~klab~]]: K framework proof explorer & smart contract specification format
 
 *** Smart Contracts
 
-- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity test framework, supports property based testing
+- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity frontend for the hevm testing features
 - [[https://github.com/dapphub/ds-math][~ds-math~]]: safe math, supports integer and fixed point operations
 - [[https://github.com/dapphub/ds-note][~ds-note~]]: generic function level logging
 - [[https://github.com/dapphub/ds-token][~ds-token~]]: flexible ERC20 with ~mint~ / ~burn~

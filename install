@@ -24,7 +24,8 @@
   [[ $RELEASE == null ]] && oops "No release found in ${API_OUTPUT}"
 
   cachix use dapp
-  nix-env -iA dapp hevm seth solc -f "$RELEASE"
+  command -v solc >/dev/null || solc="solc"
+  nix-env -iA dapp hevm seth "$solc" -f "$RELEASE"
 
   echo -e "${GREEN}All set!${NC}"
 EOF

@@ -21,16 +21,18 @@ Come say hi at [[https://dapphub.chat][~dapphub.chat~]].
 
 *** Tooling
 
+Installation instructions can be found [[https://github.com/dapphub/dapptools#installation][here]].
+
+Documentation for the individual components can be found in the readme for each tool:
+
 - [[https://github.com/dapphub/dapptools/tree/master/src/dapp][~dapp~]]: smart contract project management
 - [[https://github.com/dapphub/dapptools/tree/master/src/seth#seth][~seth~]]: command line ethereum client
 - [[https://github.com/dapphub/dapptools/tree/master/src/hevm#hevm][~hevm~]]: evm debuggger and symbolic execution engine
 
 *** Smart Contracts
 
-- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity frontend for the hevm testing features
+- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity unit testing framework
 - [[https://github.com/dapphub/ds-math][~ds-math~]]: safe math, supports integer and fixed point operations
-- [[https://github.com/dapphub/ds-note][~ds-note~]]: generic function level logging
 - [[https://github.com/dapphub/ds-token][~ds-token~]]: flexible ERC20 with ~mint~ / ~burn~
 - [[https://github.com/dapphub/ds-proxy][~ds-proxy~]]: execute arbitrary call sequences with a persistant identity
 - [[https://github.com/dapphub/ds-pause/][~ds-pause~]]: governance timelock proxy
-- [[https://github.com/dapphub/ds-auth][~ds-auth~]] / [[https://github.com/dapphub/ds-guard][~ds-guard~]] / [[https://github.com/dapphub/ds-roles][~ds-roles~]]: auth framework

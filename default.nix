@@ -1,11 +1,12 @@
-with (import <nixpkgs> {});
-let
-  gems = bundlerEnv {
-    name = "dapp-tools";
-    inherit ruby;
-    gemdir = ./.;
-  };
+{ stdenv }:
+
+let orgdapp = (import ./orgdapp.nix).orgdapp;
 in stdenv.mkDerivation {
-  name = "dapp-tools";
-  buildInputs = [gems ruby];
+    name = "planning_site";
+    src = ./.;
+    buildInputs = [ orgdapp ];
+    installPhase = ''
+      mkdir -p $out
+      install out/* $out/
+    '';
 }

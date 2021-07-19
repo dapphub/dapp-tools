@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo -e "$1\n$2" | emacs --quick --batch --load="${0%/*}/make.el" --funcall=make-html

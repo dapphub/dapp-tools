@@ -25,9 +25,9 @@ Installation instructions can be found [[https://github.com/dapphub/dapptools#in
 
 Documentation for the individual components can be found in the readme for each tool:
 
-- [[https://github.com/dapphub/dapptools/tree/master/src/dapp][~dapp~]]: smart contract project management
-- [[https://github.com/dapphub/dapptools/tree/master/src/seth#seth][~seth~]]: command line ethereum client
-- [[https://github.com/dapphub/dapptools/tree/master/src/hevm#hevm][~hevm~]]: evm debuggger and symbolic execution engine
+- [[https://github.com/dapphub/dapptools/tree/master/src/dapp#readme][~dapp~]]: smart contract project management
+- [[https://github.com/dapphub/dapptools/tree/master/src/seth#readme][~seth~]]: command line ethereum client
+- [[https://github.com/dapphub/dapptools/tree/master/src/hevm#readme][~hevm~]]: evm debuggger and symbolic execution engine
 
 *** Smart Contracts
 

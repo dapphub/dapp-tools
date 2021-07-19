@@ -27,12 +27,17 @@ Documentation for the individual components can be found in the readme for each 
 
 - [[https://github.com/dapphub/dapptools/tree/master/src/dapp#readme][~dapp~]]: smart contract project management
 - [[https://github.com/dapphub/dapptools/tree/master/src/seth#readme][~seth~]]: command line ethereum client
-- [[https://github.com/dapphub/dapptools/tree/master/src/hevm#readme][~hevm~]]: evm debuggger and symbolic execution engine
+- [[https://github.com/dapphub/dapptools/tree/master/src/hevm#readme][~hevm~]]: evm debugger and symbolic execution engine
+- [[https://github.com/dapphub/dapptools/tree/master/src/ethsign#readme][~ethsign~]]: sign eth transactions using a JSON keystore or hardware wallet
 
 *** Smart Contracts
 
-- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity unit testing framework
+- [[https://github.com/dapphub/ds-proxy][~ds-proxy~]]: execute arbitrary call sequences with a persistent identity
+- [[https://github.com/dapphub/ds-auth/][~ds-auth~]]: flexible and updatable auth, completely separate from application logic
+- [[https://github.com/dapphub/ds-roles/][~ds-roles~]]: role-driven authority for ~ds-auth~ for up to 256 roles
+- [[https://github.com/dapphub/ds-note/][~ds-note~]]: easily log function calls as events
 - [[https://github.com/dapphub/ds-math][~ds-math~]]: safe math, supports integer and fixed point operations
-- [[https://github.com/dapphub/ds-token][~ds-token~]]: flexible ERC20 with ~mint~ / ~burn~
-- [[https://github.com/dapphub/ds-proxy][~ds-proxy~]]: execute arbitrary call sequences with a persistant identity
+- [[https://github.com/dapphub/ds-token][~ds-token~]]: flexible ERC20 with auth protected ~mint~ / ~burn~
+- [[https://github.com/dapphub/ds-group/][~ds-group~]]: simple multisig with a command-line interface
 - [[https://github.com/dapphub/ds-pause/][~ds-pause~]]: governance timelock proxy
+- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity unit testing framework for ~hevm~ / ~dapp~

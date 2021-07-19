@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name: "Build"
 on:
   pull_request:
@@ -10,24 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@8d6d5e949675fbadb765c6b1a975047fa5f09b27 # v13
-        with:
-          nix_path: nixpkgs=channel:nixos-unstable
+      - uses: cachix/install-nix-action@63cf434de4e4292c6960639d56c5dd550e789d77
       - name: Run install script
-        run: cat install | sh
-=======
--name: "Build"
--on:
--  pull_request:
--  push:
--jobs:
--  build:
--    # NOTE: see this issue for why we don't build on macOS
--    # https://github.community/t/api-rate-limit-exceeded-on-actions-setup-go/16237/5
--    runs-on: ubuntu-latest
--    steps:
--      - uses: actions/checkout@v2
--      - uses: cachix/install-nix-action@63cf434de4e4292c6960639d56c5dd550e789d77
--      - name: Run install script
--        run: cat install | sh
->>>>>>> e40d4b5 (reinstate install script)
+         run: cat install | sh

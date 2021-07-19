@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@63cf434de4e4292c6960639d56c5dd550e789d77
       - name: Run install script
-         run: cat install | sh
+        run: cat install | sh

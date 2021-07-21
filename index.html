@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-07-19 Mon 12:17 -->
+<!-- 2021-07-21 Wed 09:02 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>dapp.tools</title>
@@ -230,9 +230,9 @@ Command line tools and smart contract libraries for Ethereum smart contract deve
 Come say hi at <a href="https://dapphub.chat"><code>dapphub.chat</code></a>.
 </p>
 
-<div id="outline-container-org74d97d6" class="outline-2">
-<h2 id="org74d97d6">Tooling</h2>
-<div class="outline-text-2" id="text-org74d97d6">
+<div id="outline-container-orga1866e7" class="outline-2">
+<h2 id="orga1866e7">Tooling</h2>
+<div class="outline-text-2" id="text-orga1866e7">
 <p>
 Installation instructions can be found <a href="https://github.com/dapphub/dapptools#installation">here</a>.
 </p>
@@ -244,20 +244,24 @@ Documentation for the individual components can be found in the readme for each 
 <ul class="org-ul">
 <li><a href="https://github.com/dapphub/dapptools/tree/master/src/dapp#readme"><code>dapp</code></a>: smart contract project management</li>
 <li><a href="https://github.com/dapphub/dapptools/tree/master/src/seth#readme"><code>seth</code></a>: command line ethereum client</li>
-<li><a href="https://github.com/dapphub/dapptools/tree/master/src/hevm#readme"><code>hevm</code></a>: evm debuggger and symbolic execution engine</li>
+<li><a href="https://github.com/dapphub/dapptools/tree/master/src/hevm#readme"><code>hevm</code></a>: evm debugger and symbolic execution engine</li>
+<li><a href="https://github.com/dapphub/dapptools/tree/master/src/ethsign#readme"><code>ethsign</code></a>: sign eth transactions using a JSON keystore or hardware wallet</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4ecba8e" class="outline-2">
-<h2 id="org4ecba8e">Smart Contracts</h2>
-<div class="outline-text-2" id="text-org4ecba8e">
+<div id="outline-container-org403ad87" class="outline-2">
+<h2 id="org403ad87">Smart Contracts</h2>
+<div class="outline-text-2" id="text-org403ad87">
 <ul class="org-ul">
-<li><a href="https://github.com/dapphub/ds-test/"><code>ds-test</code></a>: solidity unit testing framework</li>
+<li><a href="https://github.com/dapphub/ds-proxy"><code>ds-proxy</code></a>: execute arbitrary call sequences with a persistent identity</li>
+<li><a href="https://github.com/dapphub/ds-auth/"><code>ds-auth</code></a>: flexible and updatable auth, completely separate from application logic</li>
+<li><a href="https://github.com/dapphub/ds-roles/"><code>ds-roles</code></a>: role-driven authority for <code>ds-auth</code> for up to 256 roles</li>
+<li><a href="https://github.com/dapphub/ds-note/"><code>ds-note</code></a>: easily log function calls as events</li>
 <li><a href="https://github.com/dapphub/ds-math"><code>ds-math</code></a>: safe math, supports integer and fixed point operations</li>
-<li><a href="https://github.com/dapphub/ds-token"><code>ds-token</code></a>: flexible ERC20 with <code>mint</code> / <code>burn</code></li>
-<li><a href="https://github.com/dapphub/ds-proxy"><code>ds-proxy</code></a>: execute arbitrary call sequences with a persistant identity</li>
+<li><a href="https://github.com/dapphub/ds-token"><code>ds-token</code></a>: flexible ERC20 with auth protected <code>mint</code> / <code>burn</code></li>
 <li><a href="https://github.com/dapphub/ds-pause/"><code>ds-pause</code></a>: governance timelock proxy</li>
+<li><a href="https://github.com/dapphub/ds-test/"><code>ds-test</code></a>: solidity unit testing framework for <code>hevm</code> / <code>dapp</code></li>
 </ul>
 </div>
 </div>

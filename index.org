@@ -32,11 +32,12 @@ Documentation for the individual components can be found in the readme for each 
 
 *** Smart Contracts
 
-- [[https://github.com/dapphub/ds-proxy][~ds-proxy~]]: execute arbitrary call sequences with a persistent identity
-- [[https://github.com/dapphub/ds-auth/][~ds-auth~]]: flexible and updatable auth, completely separate from application logic
-- [[https://github.com/dapphub/ds-roles/][~ds-roles~]]: role-driven authority for ~ds-auth~ for up to 256 roles
 - [[https://github.com/dapphub/ds-note/][~ds-note~]]: easily log function calls as events
+- [[https://github.com/dapphub/ds-auth/][~ds-auth~]]: flexible and updatable auth framework
 - [[https://github.com/dapphub/ds-math][~ds-math~]]: safe math, supports integer and fixed point operations
+- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity unit testing framework for ~hevm~ / ~dapp~
+- [[https://github.com/dapphub/ds-proxy][~ds-proxy~]]: execute arbitrary call sequences with a persistent identity
+- [[https://github.com/dapphub/ds-roles/][~ds-roles~]]: role-driven authority for ~ds-auth~ for up to 256 roles
+- [[https://github.com/dapphub/ds-guard][~ds-guard~]]: access control list authority for ~ds-auth~
 - [[https://github.com/dapphub/ds-token][~ds-token~]]: flexible ERC20 with auth protected ~mint~ / ~burn~
 - [[https://github.com/dapphub/ds-pause/][~ds-pause~]]: governance timelock proxy
-- [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity unit testing framework for ~hevm~ / ~dapp~

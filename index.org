@@ -38,6 +38,5 @@ Documentation for the individual components can be found in the readme for each 
 - [[https://github.com/dapphub/ds-note/][~ds-note~]]: easily log function calls as events
 - [[https://github.com/dapphub/ds-math][~ds-math~]]: safe math, supports integer and fixed point operations
 - [[https://github.com/dapphub/ds-token][~ds-token~]]: flexible ERC20 with auth protected ~mint~ / ~burn~
-- [[https://github.com/dapphub/ds-group/][~ds-group~]]: simple multisig with a command-line interface
 - [[https://github.com/dapphub/ds-pause/][~ds-pause~]]: governance timelock proxy
 - [[https://github.com/dapphub/ds-test/][~ds-test~]]: solidity unit testing framework for ~hevm~ / ~dapp~
